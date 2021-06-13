@@ -1,0 +1,16 @@
+{
+    "components":{
+        "responses":{
+            "settingListGet":{
+                "description":"List of settings",
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "$ref":"./settingSchema.json#/components/schemas/settingList"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

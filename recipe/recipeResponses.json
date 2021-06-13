@@ -1,0 +1,69 @@
+{
+    "components":{
+        "responses":{
+            "recipeList":{
+                "description": "a list of recipes",
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":"recipeSchema.json#/components/schemas/RecipeList"
+                        }
+                    }
+                }
+            },
+            "recipe":{
+                "description": "returns recipe",
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":"recipeSchema.json#/components/schemas/RecipeGet"
+                        }
+                    }
+                }
+            },
+            "recipeStepList":{
+                "description": "get all Steps of the Recipe",
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":"recipeSchema.json#/components/schemas/RecipeStepList"
+                        }
+                    }
+                }
+            },
+            "recipeStep":{
+                "description": "get the created steps of the Recipe",
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref": "recipeSchema.json#/components/schemas/RecipeStepGet"
+                        }
+                    }
+                }
+            },
+            "recipeIncredientList":{
+                "description": "returns the incredients of a recipe",
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "type":"array",
+                            "items":{
+                                "$ref":"recipeSchema.json#/components/schemas/RecipeIncredientGet"
+                            }
+                        }
+                    }
+                }
+            },
+            "recipeIncredient":{
+                "description": "returns the incredients of a recipe",
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":"recipeSchema.json#/components/schemas/RecipeIncredientGet"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

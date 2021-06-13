@@ -1,0 +1,59 @@
+{
+    "components":{
+        "responses":{
+            "ShoppingListList":{
+                "description": "list of all shopping lists",
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "$ref":"ShoppingListSchema.json#/components/schemas/ShoppingListList"
+                        }
+                    }
+                }
+            },
+            "ShoppingList":{
+                "description": "return Shopping List Item",
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":"ShoppingListSchema.json#/components/schemas/ShoppingListGet"
+                        }
+                    }
+                }
+            },
+            "ShoppingListMapping":{
+                "description": "get Shopping List Item",
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref": "ShoppingListSchema.json#/components/schemas/ShoppingListMappingGet"
+                        }
+                    }
+                }
+            },
+            "ShoppingListMappingList":{
+                "description": "get all Mappings between Shopping List and product",
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "$ref":"shoppingListSchema.json#/components/schemas/ShoppingListMappingList"
+                        }
+                    }
+                }
+            },
+            "ShoppingListProduct":{
+                "description": "list of product according to the shopping list",
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "type": "array",
+                            "items":{
+                                "$ref":"../product/productSchema.json#/components/schemas/ProductGet"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

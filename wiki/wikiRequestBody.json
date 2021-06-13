@@ -1,0 +1,26 @@
+{
+    "components":{
+        "requestBodies":{
+            "wikiSearch":{
+                "required": false,
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":"wikiSchema.json#/components/schemas/wikiSearch"
+                        }
+                    }
+                }
+            },
+            "wiki":{
+                "required": true,
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref": "wikiSchema.json#/components/schemas/WikiPageWrite"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

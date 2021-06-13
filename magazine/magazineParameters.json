@@ -1,0 +1,15 @@
+{
+    "components":{
+        "parameters":{
+            "magazine":{
+                "name":"magazineId",
+                "in": "path",
+                "required": true,
+                "description": "id of the magazine",
+                "schema":{
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,244 @@
+{
+    "components":{
+        "paths":{
+            "shoppingLists":{
+                "get":{
+                    "summary": "get Shopping List",
+                    "operationId": "getShoppingLists",
+                    "tags": [
+                        "shoppingList"
+                    ],
+                    "responses": {
+                        "200":{
+                            "$ref":"shoppingList/shoppingListResponses.json#/components/responses/ShoppingListList"
+                        }
+                    }
+                },
+                "post":{
+                    "summary": "create new Shopping List",
+                    "operationId": "createShoppingList",
+                    "tags": [
+                        "shoppingList"
+                    ],
+                    "requestBody":{
+                        "$ref":"shoppingList/shoppingListRequestBody.json#/components/requestBodies/shoppingList"
+                    },
+                    "responses": {
+                        "201":{
+                            "$ref":"shoppingList/shoppingListResponses.json#/components/responses/ShoppingList"
+                        }
+                    }
+                }
+            },
+            "shoppingListDetail":{
+                "get":{
+                    "summary": "get Shopping List",
+                    "operationId": "getShoppingList",
+                    "tags": [
+                        "shoppingList"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"shoppingList/shoppingListParameters.json#/components/parameters/shoppingList"
+                        }
+                    ],
+                    "responses": {
+                        "200":{
+                            "$ref":"shoppingList/shoppingListResponses.json#/components/responses/ShoppingList"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                },
+                "put":{
+                    "summary": "update Shopping List",
+                    "operationId": "updateShoppingList",
+                    "tags": [
+                        "shoppingList"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"shoppingList/shoppingListParameters.json#/components/parameters/shoppingList"
+                        }
+                    ],
+                    "requestBody":{
+                        "$ref":"shoppingList/shoppingListRequestBody.json#/components/requestBodies/shoppingList"
+                    },
+                    "responses": {
+                        "200":{
+                            "$ref":"shoppingList/shoppingListResponses.json#/components/responses/ShoppingList"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                },
+                "delete":{
+                    "summary": "delete a Shopping List",
+                    "operationId": "deleteShoppingList",
+                    "tags": [
+                        "shoppingList"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"shoppingList/shoppingListParameters.json#/components/parameters/shoppingList"
+                        }
+                    ],
+                    "responses": {
+                        "200":{
+                            "$ref":"shoppingList/shoppingListResponses.json#/components/responses/ShoppingList"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                }
+            },
+            "shoppingListProducts":{
+                "get":{
+                    "summary": "get all products of shopping list",
+                    "operationId": "getShoppingListProducts",
+                    "tags": [
+                        "shoppingList"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"shoppingList/shoppingListParameters.json#/components/parameters/shoppingList"
+                        }
+                    ],
+                    "responses": {
+                        "200":{
+                            "$ref":"shoppingList/shoppingListResponses.json#/components/responses/ShoppingListProduct"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                }
+            },
+            "shoppingListMapping":{
+                "get":{
+                    "summary": "get all mappings of shopping List",
+                    "operationId":"getShoppingListMapping",
+                    "tags":[
+                        "shoppingList"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"shoppingList/shoppingListParameters.json#/components/parameters/shoppingList"
+                        }
+                    ],
+                    "responses":{
+                        "200":{
+                            "$ref":"shoppingList/shoppingListResponses.json#/components/responses/ShoppingListMappingList"
+                        },
+                        "400":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                }
+            },
+            "shoppingListProductDetail":{
+                "post":{
+                    "summary": "create a shopping list - product relation",
+                    "operationId": "createShoppingListProduct",
+                    "tags": [
+                        "shoppingList"
+                    ],
+                    "parameters":[
+                        {
+                            "$ref":"shoppingList/shoppingListParameters.json#/components/parameters/shoppingList"
+                        },
+                        {
+                            "$ref":"product/productParameters.json#/components/parameters/product"
+                        }
+                    ],
+                    "requestBody":{
+                        "$ref": "shoppingList/shoppingListRequestBody.json#/components/requestBodies/shoppingListMapping"
+                    },
+                    "responses": {
+                        "200":{
+                            "$ref":"shoppingList/shoppingListResponses.json#/components/responses/ShoppingListMapping"
+                        },
+                        "400":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                },
+                "get":{
+                    "summary": "get a product",
+                    "operationId": "getShoppingListProduct",
+                    "tags": [
+                        "shoppingList"
+                    ],
+                    "parameters":[
+                        {
+                            "$ref":"shoppingList/shoppingListParameters.json#/components/parameters/shoppingList"
+                        },
+                        {
+                            "$ref":"product/productParameters.json#/components/parameters/product"
+                        }
+                    ],
+                    "responses": {
+                        "200":{
+                            "$ref":"shoppingList/shoppingListResponses.json#/components/responses/ShoppingListMapping"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                },
+                "put":{
+                    "summary": "update a product",
+                    "operationId": "updateShoppingListProduct",
+                    "tags": [
+                        "shoppingList"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"shoppingList/shoppingListParameters.json#/components/parameters/shoppingList"
+                        },
+                        {
+                            "$ref":"product/productParameters.json#/components/parameters/product"
+                        }
+                    ],
+                    "requestBody":{
+                        "$ref":"shoppingList/shoppingListRequestBody.json#/components/requestBodies/shoppingListMapping"
+                    },
+                    "responses": {
+                        "200":{
+                            "$ref":"shoppingList/shoppingListResponses.json#/components/responses/ShoppingListMapping"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                },
+                "delete":{
+                    "summary": "delete a product",
+                    "operationId": "deleteShoppingListProduct",
+                    "tags": [
+                        "shoppingList"
+                    ],
+                    "parameters":[
+                        {
+                            "$ref":"shoppingList/shoppingListParameters.json#/components/parameters/shoppingList"
+                        },
+                        {
+                            "$ref":"product/productParameters.json#/components/parameters/product"
+                        }
+                    ],
+                    "responses": {
+                        "200":{
+                            "$ref":"commonResponses.json#/components/responses/default"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

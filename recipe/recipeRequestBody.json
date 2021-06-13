@@ -1,0 +1,36 @@
+{
+    "components":{
+        "requestBodies":{
+            "recipe":{
+                "description": "object to create or update recipe",
+                "required": true,
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref": "recipeSchema.json#/components/schemas/RecipeWrite"
+                        }
+                    }
+                }
+            },
+            "recipeStep":{
+                "description": "object to create or update the recipe step object",
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":"recipeSchema.json#/components/schemas/RecipeStepWrite"
+                        }
+                    }
+                }
+            },
+            "recipeIncredient":{
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":"recipeSchema.json#/components/schemas/RecipeIncredientWrite"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

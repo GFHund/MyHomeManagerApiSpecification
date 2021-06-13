@@ -1,0 +1,45 @@
+{
+    "components":{
+        "schemas":{
+            "Products":{
+                "type":"array",
+                "items":{
+                    "$ref":"#/components/schemas/ProductGet"
+                }
+            },
+            "ProductWrite":{
+                "type":"object",
+                "properties": {
+                    "productName":{
+                        "type":"string"
+                    }
+                }
+            },
+            "ProductGet":{
+                "type":"object",
+                "properties": {
+                    "id":{
+                        "type":"string"
+                    },
+                    "productName":{
+                        "type":"string"
+                    }
+                }
+            },
+            "ProductFilter":{
+                "type":"object",
+                "properties": {
+                    "productName": {
+                        "type": "string"
+                    },
+                    "productIds":{
+                        "type": "array",
+                        "items": {
+                            "type":"string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

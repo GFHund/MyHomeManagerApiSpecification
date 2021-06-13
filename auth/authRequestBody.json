@@ -1,0 +1,16 @@
+{
+    "components":{
+        "requestBodies":{
+            "user":{
+                "required": true,
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":"authSchema.json#/components/schemas/userPropertiesWrite"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

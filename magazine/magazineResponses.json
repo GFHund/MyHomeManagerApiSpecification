@@ -1,0 +1,16 @@
+{
+    "components":{
+        "responses":{
+            "magazine":{
+                "description": "json object",
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "$ref":"magazineSchema.json#/components/schemas/MagazinesGet"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

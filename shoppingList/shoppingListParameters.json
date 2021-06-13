@@ -1,0 +1,14 @@
+{
+    "components":{
+        "parameters":{
+            "shoppingList":{
+                "name":"shoppingListId",
+                "in": "path",
+                "required": true,
+                "schema":{
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

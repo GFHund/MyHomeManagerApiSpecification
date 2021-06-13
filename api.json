@@ -1,0 +1,93 @@
+{
+    "openapi":"3.0.0",
+    "info":{
+        "version": "1.0.0",
+        "title": "my Home Manager API",
+        "license": {
+            "name": "GPL"
+        }
+    },
+    "servers": [
+        {
+            "url": "slime.home:8080"
+        }
+    ],
+    "paths": {
+        "/api/v1/auth/login":{
+            "$ref":"auth.json#/components/paths/loginUser"
+        },
+        "/api/v1/user/register":{
+            "$ref":"auth.json#/components/paths/register"
+        },
+        "/api/v1/users":{
+            "$ref":"auth.json#/components/paths/getUserList"
+        },
+        "/api/v1/user/{userId}":{
+            "$ref":"auth.json#/components/paths/getUser"
+        },
+
+        "/api/v1/product":{
+            "$ref":"product.json#/components/paths/products"
+        },
+        "/api/v1/product/{productId}":{
+            "$ref":"product.json#/components/paths/product"
+        },
+
+        "/api/v1/recipe":{
+            "$ref":"recipe.json#/components/paths/recipes"
+        },
+        "/api/v1/recipe/{recipeId}":{
+            "$ref":"recipe.json#/components/paths/recipe"
+        },
+        "/api/v1/recipe/{recipeId}/incredient":{
+            "$ref":"recipe.json#/components/paths/incredient"
+        },
+        "/api/v1/recipe/{recipeId}/incredient/{productId}":{
+            "$ref":"recipe.json#/components/paths/incredientProduct"
+        },
+        "/api/v1/recipe/{recipeId}/step":{
+            "$ref":"recipe.json#/components/paths/steps"
+        },
+        "/api/v1/recipe/{recipeId}/step/{stepId}":{
+            "$ref":"recipe.json#/components/paths/stepDetail"
+        },
+        "/api/v1/incredient/{productId}/recipes":{
+            "$ref":"recipe.json#/components/paths/productRecipes"
+        },
+
+        "/api/v1/shoppingList":{
+            "$ref":"shoppingList.json#/components/paths/shoppingLists"
+        },
+        "/api/v1/shoppingList/{shoppingListId}":{
+            "$ref":"shoppingList.json#/components/paths/shoppingListDetail"
+        },
+        "/api/v1/shoppingList/{shoppingListId}/product":{
+            "$ref":"shoppingList.json#/components/paths/shoppingListProducts"
+        },
+        "/api/v1/shoppingList/{shoppingListId}/mapping":{
+            "$ref":"shoppingList.json#/components/paths/shoppingListMapping"
+        },
+        "/api/v1/shoppingList/{shoppingListId}/product/{productId}":{
+            "$ref":"shoppingList.json#/components/paths/shoppingListProductDetail"
+        },
+
+        "/api/v1/magazines/list":{
+            "$ref":"magazine.json#/components/paths/magazines"
+        },
+        "/api/v1/magazines/{magazineId}":{
+            "$ref":"magazine.json#/components/paths/magazineDetail"
+        },
+
+        "/api/v1/wiki/page":{
+            "$ref":"wiki.json#/components/paths/wikiPages"
+        },
+        "/api/v1/wiki/page/{pageId}":{
+            "$ref":"wiki.json#/components/paths/wikiPageDetail"
+        },
+
+        "/setting":{
+            "$ref":"setting.json#/components/paths/setting"
+        }
+
+    }
+}

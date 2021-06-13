@@ -1,0 +1,26 @@
+{
+    "components":{
+        "responses":{
+            "default":{
+                "description": "returns success of the operation",
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":"commonSchema.json#/components/schemas/defaultReturn"
+                        }
+                    }
+                }
+            },
+            "notFound":{
+                "description": "not found",
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":"commonSchema.json#/components/schemas/notFound"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

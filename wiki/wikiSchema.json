@@ -1,0 +1,53 @@
+{
+    "components":{
+        "schemas":{
+            "wikiSearch":{
+                "type": "object",
+                "properties": {
+                    "searchWord":{
+                        "type":"string"
+                    }
+                }
+            },
+            "wikiList":{
+                "type":"array",
+                "items":{
+                    "$ref":"#/components/schemas/wikiSimple"
+                }
+            },
+            "wikiSimple":{
+                "type":"object",
+                "properties": {
+                    "title":{
+                        "type": "string"
+                    }
+                }
+            },
+            "WikiPageWrite":{
+                "type":"object",
+                "properties": {
+                    "title":{
+                        "type": "string"
+                    },
+                    "text":{
+                        "type":"string"
+                    }
+                }
+            },
+            "WikiPageGet":{
+                "type":"object",
+                "properties": {
+                    "id":{
+                        "type": "string"
+                    },
+                    "title":{
+                        "type": "string"
+                    },
+                    "text":{
+                        "type":"string"
+                    }
+                }
+            }
+        }
+    }
+}

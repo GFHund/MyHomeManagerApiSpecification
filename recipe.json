@@ -1,0 +1,368 @@
+{
+    "components":{
+        "paths":{
+            "recipes":{
+                "get":{
+                    "summary": "gets a List of all Recipes",
+                    "operationId": "getRecipeList",
+                    "tags": [
+                        "recipe"
+                    ],
+                    "requestBody":{
+                        "description": "filter recipes",
+                        "required": false,
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "$ref":"recipe/recipeSchema.json#/components/schemas/RecipeWrite"
+                                }
+                            }
+                        }
+                    },
+                    "responses": {
+                        "200":{
+                            "$ref":"recipe/recipeResponses.json#/components/responses/recipeList"
+                        }
+                    }
+                },
+                "post":{
+                    "summary": "Create a Recipe",
+                    "operationId": "createRecipe",
+                    "tags": [
+                        "recipe"
+                    ],
+                    "requestBody":{
+                        "$ref":"recipe/recipeRequestBody.json#/components/requestBodies/recipe"
+                    },
+                    "responses": {
+                        "201":{
+                            "$ref":"recipe/recipeResponses.json#/components/responses/recipe"
+                        }
+                    }
+                }
+            },
+            "recipe":{
+                "get":{
+                    "summary": "get one recipe Object",
+                    "operationId": "getRecipeItem",
+                    "tags": [
+                        "recipe"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"recipe/recipeParameters.json#/components/parameters/recipe"
+                        }
+                    ],
+                    "responses": {
+                        "200":{
+                            "$ref":"recipe/recipeResponses.json#/components/responses/recipe"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                },
+                "put":{
+                    "summary": "update a recipe object",
+                    "operationId": "updateRecipeItem",
+                    "tags": [
+                        "recipe"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"recipe/recipeParameters.json#/components/parameters/recipe"
+                        }
+                    ],
+                    "requestBody":{
+                        "$ref":"recipe/recipeRequestBody.json#/components/requestBodies/recipe"
+                    },
+                    "responses": {
+                        "200":{
+                            "$ref":"recipe/recipeResponses.json#/components/responses/recipe"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                },
+                "delete":{
+                    "summary": "delete a recipe object",
+                    "operationId": "deleteRecipeObject",
+                    "tags": [
+                        "recipe"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"recipe/recipeParameters.json#/components/parameters/recipe"
+                        }
+                    ],
+                    "responses": {
+                        "200":{
+                            "$ref":"commonResponses.json#/components/responses/default"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                }
+            },
+            "steps":{
+                "get":{
+                    "summary": "get all steps of a recipe",
+                    "operationId": "getRecipeSteps",
+                    "tags": [
+                        "recipe"
+                    ],
+                    "parameters": [
+                         {
+                             "$ref":"recipe/recipeParameters.json#/components/parameters/recipe"
+                         }
+                    ],
+                    "responses": {
+                        "200":{
+                            "$ref":"recipe/recipeResponses.json#/components/responses/recipeStepList"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                },
+                "post":{
+                    "summary": "create a step of a recipe",
+                    "operationId": "createRecipeStep",
+                    "tags": [
+                        "recipe"
+                    ],
+                    "parameters": [
+                         {
+                             "$ref":"recipe/recipeParameters.json#/components/parameters/recipe"
+                         }
+                    ],
+                    "requestBody":{
+                        "$ref":"recipe/recipeRequestBody.json#/components/requestBodies/recipeStep"
+                    },
+                    "responses": {
+                        "200":{
+                            "$ref":"recipe/recipeResponses.json#/components/responses/recipeStep"
+                        }
+                    }
+                }
+            },
+            "stepDetail":{
+                "get":{
+                    "summary": "get step of a recipe",
+                    "operationId": "getRecipeStep",
+                    "tags": [
+                        "recipe"
+                    ],
+                    "parameters": [
+                         {
+                             "$ref":"recipe/recipeParameters.json#/components/parameters/recipe"
+                             
+                         },{
+                            "$ref":"recipe/recipeParameters.json#/components/parameters/step"
+                         }
+                    ],
+                    "responses": {
+                        "200":{
+                            "$ref":"recipe/recipeResponses.json#/components/responses/recipeStep"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                },
+                "put":{
+                    "summary": "update step of a recipe",
+                    "operationId": "updateRecipeStep",
+                    "tags": [
+                        "recipe"
+                    ],
+                    "parameters": [
+                         {
+                             "$ref":"recipe/recipeParameters.json#/components/parameters/recipe"
+                             
+                         },{
+                            "$ref":"recipe/recipeParameters.json#/components/parameters/step"
+                         }
+                    ],
+                    "requestBody":{
+                        "$ref":"recipe/recipeRequestBody.json#/components/requestBodies/recipeStep"
+                    },
+                    "responses": {
+                        "200":{
+                            "$ref":"recipe/recipeResponses.json#/components/responses/recipeStep"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                },
+                "delete":{
+                    "summary": "delete step of a recipe",
+                    "operationId": "deleteRecipeStep",
+                    "tags": [
+                        "recipe"
+                    ],
+                    "parameters": [
+                         {
+                             "$ref":"recipe/recipeParameters.json#/components/parameters/recipe"
+                             
+                         },{
+                            "$ref":"recipe/recipeParameters.json#/components/parameters/step"
+                         }
+                    ],
+                    "responses": {
+                        "200":{
+                            "$ref":"commonResponses.json#/components/responses/default"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                }
+            },
+            "incredient":{
+                "get":{
+                    "summary":"get the incredient to the recipe",
+                    "operationId": "getRecipeIncredients",
+                    "tags": [
+                        "recipe"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"recipe/recipeParameters.json#/components/parameters/recipe"
+                        }
+                    ],
+                    "responses": {
+                        "200":{
+                            "$ref":"recipe/recipeResponses.json#/components/responses/recipeIncredientList"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                }
+            },
+            "incredientProduct":{
+                "get":{
+                    "summary":"get the incredient to the recipe",
+                    "operationId": "getRecipeIncredient",
+                    "tags": [
+                        "recipe"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"recipe/recipeParameters.json#/components/parameters/recipe"
+                        },
+                        {
+                            "$ref": "product/productParameters.json#/components/parameters/product"
+                        }
+                    ],
+                    "responses": {
+                        "200":{
+                            "$ref":"recipe/recipeResponses.json#/components/responses/recipeIncredient"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                },
+                "post":{
+                    "summary":"create the incredient of a recipe",
+                    "operationId": "createRecipeIncredient",
+                    "tags": [
+                        "recipe"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"recipe/recipeParameters.json#/components/parameters/recipe"
+                        },
+                        {
+                            "$ref": "product/productParameters.json#/components/parameters/product"
+                        }
+                    ],
+                    "requestBody":{
+                        "$ref":"recipe/recipeRequestBody.json#/components/requestBodies/recipeIncredient"
+                    },
+                    "responses": {
+                        "200":{
+                            "$ref":"recipe/recipeResponses.json#/components/responses/recipeIncredient"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                },
+                "put":{
+                    "summary":"update the incredient of a recipe",
+                    "operationId": "updateRecipeIncredient",
+                    "tags": [
+                        "recipe"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"recipe/recipeParameters.json#/components/parameters/recipe"
+                        },
+                        {
+                            "$ref": "product/productParameters.json#/components/parameters/product"
+                        }
+                    ],
+                    "requestBody":{
+                        "$ref":"recipe/recipeRequestBody.json#/components/requestBodies/recipeIncredient"
+                    },
+                    "responses": {
+                        "200":{
+                            "$ref":"recipe/recipeResponses.json#/components/responses/recipeIncredient"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                },
+                "delete":{
+                    "summary":"delete the incredient to the recipe",
+                    "operationId": "deleteRecipeIncredient",
+                    "tags": [
+                        "recipe"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"recipe/recipeParameters.json#/components/parameters/recipe"
+                        },
+                        {
+                            "$ref": "product/productParameters.json#/components/parameters/product"
+                        }
+                    ],
+                    "responses": {
+                        "200":{
+                            "$ref":"commonResponses.json#/components/responses/default"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                }
+            },
+            "productRecipes":{
+                "get":{
+                    "summary": "get Recipes to for the incredient",
+                    "operationId": "getIncredientRecipes",
+                    "tags": [
+                        "incredient"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"product/productParameters.json#/components/parameters/product"
+                        }
+                    ],
+                    "responses": {
+                        "200":{
+                            "$ref":"recipe/recipeResponses.json#/components/responses/recipeList"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

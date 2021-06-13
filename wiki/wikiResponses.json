@@ -1,0 +1,29 @@
+{
+    "components":{
+        "responses":{
+            "wikiList":{
+                "description": "gets a list of Pages",
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "type": "array",
+                            "items":{
+                                "type":"string"
+                            }
+                        }
+                    }
+                }
+            },
+            "wiki":{
+                "description": "get Id of the new created Page",
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":  "wikiSchema.json#/components/schemas/WikiPageGet"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

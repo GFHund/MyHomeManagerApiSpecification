@@ -1,0 +1,26 @@
+{
+    "components":{
+        "responses":{
+            "authReturn":{
+                "description": "returns success of the operation",
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":"authSchema.json#/components/schemas/authReturn"
+                        }
+                    }
+                }
+            },
+            "user":{
+                "description": "returns the user",
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":"authSchema.json#/components/schemas/userPropertiesGet"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

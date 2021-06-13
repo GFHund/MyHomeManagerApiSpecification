@@ -1,0 +1,68 @@
+{
+    "components":{
+        "schemas":{
+            "ShoppingListList":{
+                "type":"array",
+                "items":{
+                    "$ref":"#/components/schemas/ShoppingListGet"
+                }
+            },
+            "ShoppingListGet":{
+                "type":"object",
+                "properties": {
+                    "id":{
+                        "type": "string"
+                    },
+                    "title":{
+                        "type":"string"
+                    }
+                }
+            },
+            "ShoppingListWrite":{
+                "type": "object",
+                "properties": {
+                    "title":{
+                        "type": "string"
+                    }
+                }
+            },
+            "ShoppingListMappingList":{
+                "type":"array",
+                "items":{
+                    "$ref":"#/components/schemas/ShoppingListMappingGet"
+                }
+            },
+            "ShoppingListMappingGet":{
+                "type":"object",
+                "properties": {
+					"id":{
+						"type":"string"
+					},
+                    "shoppingListId":{
+                        "type": "string"
+                    },
+                    "productId":{
+                        "type": "string"
+                    },
+                    "amount":{
+                        "type":"number"
+                    },
+                    "unit":{
+                        "type":"string"
+                    }
+                }
+            },
+            "ShoppingListMappingWrite":{
+                "type":"object",
+                "properties": {
+                    "amount":{
+                        "type":"number"
+                    },
+                    "unit":{
+                        "type":"string"
+                    }
+                }
+            }
+        }
+    }
+}

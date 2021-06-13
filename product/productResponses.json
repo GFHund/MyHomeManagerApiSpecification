@@ -1,0 +1,16 @@
+{
+    "components":{
+        "responses":{
+            "product":{
+                "description": "returns the Product",
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":"productSchema.json#/components/schemas/ProductGet"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

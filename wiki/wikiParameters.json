@@ -1,0 +1,15 @@
+{
+    "components":{
+        "parameters":{
+            "page":{
+                "name": "pageId",
+                "in": "path",
+                "required": true,
+                "description": "wiki page id",
+                "schema":{
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

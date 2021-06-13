@@ -1,0 +1,113 @@
+{
+    "components":{
+        "schemas":{
+            "RecipeList":{
+                "type": "array",
+                "items":{
+                    "$ref":"#/components/schemas/RecipeSimple"
+                }
+            },
+            "RecipeSimple":{
+                "type":"object",
+                "properties": {
+                    "id":{
+                        "type": "string"
+                    },
+                    "name":{
+                        "type": "string"
+                    }
+                }
+            },
+            "RecipeGet":{
+                "type": "object",
+                "properties": {
+                    "id":{
+                        "type": "string"
+                    },
+                    "name":{
+                        "type": "string"
+                    },
+                    "persons":{
+                        "type": "integer"
+                    },
+                    "time":{
+                        "type":"integer"
+                    }
+                }
+            },
+            "RecipeWrite": {
+                "type": "object",
+                "properties": {
+                    "name":{
+                        "type": "string"
+                    },
+                    "persons":{
+                        "type": "integer"
+                    },
+                    "time":{
+                        "type":"integer"
+                    }
+                }
+            },
+            "RecipeStepList":{
+                "type":"array",
+                "items":{
+                    "$ref": "#/components/schemas/RecipeStepGet"
+                }
+            },
+            "RecipeStepGet":{
+                "type": "object",
+                "properties": {
+                    "id":{
+                        "type":"string"
+                    },
+                    "description":{
+                        "type":"string"
+                    },
+                    "stepnumber":{
+                        "type": "integer"
+                    }
+                }
+            },
+            "RecipeStepWrite":{
+                "type":"object",
+                "properties": {
+                    "description":{
+                        "type": "string"
+                    },
+                    "stepnumber":{
+                        "type": "integer"
+                    }
+                }
+            },
+            "RecipeIncredientGet":{
+                "type": "object",
+                "properties": {
+                    "recipeId":{
+                        "type":"string"
+                    },
+                    "productId":{
+                        "type": "string"
+                    },
+                    "amount":{
+                        "type": "number"
+                    },
+                    "unit":{
+                        "type": "string"
+                    }
+                }
+            },
+            "RecipeIncredientWrite":{
+                "type": "object",
+                "properties": {
+                    "amount":{
+                        "type":"number"
+                    },
+                    "unit":{
+                        "type":"string"
+                    }
+                }
+            }
+        }
+    }
+}

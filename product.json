@@ -1,0 +1,112 @@
+{
+    "components":{
+        "paths":{
+            "products":{
+                "get":{
+                    "summary": "get a list of Products",
+                    "operationId": "getProducts",
+                    "tags": [
+                        "product"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"product/productParameters.json#/components/parameters/productFilter"
+                        }
+                    ],
+                    "responses": {
+                        "200":{
+                            "description": "a list of Products",
+                            "content": {
+                                "application/json":{
+                                    "schema":{
+                                        "$ref":"product/productSchema.json#/components/schemas/Products"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "post":{
+                    "summary": "create a new product",
+                    "operationId": "createProduct",
+                    "tags": [
+                        "product"
+                    ],
+                    "requestBody":{
+                        "$ref":"product/productRequestBody.json#/components/requestBodies/product"
+                    },
+                    "responses": {
+                        "201":{
+                            "$ref": "product/productResponses.json#/components/responses/product"
+                        }
+                    }
+                }
+            },
+            "product":{
+                "get":{
+                    "summary": "get a product",
+                    "operationId": "getProduct",
+                    "tags": [
+                        "product"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"product/productParameters.json#/components/parameters/product"
+                        }
+                    ],
+                    "responses": {
+                        "200":{
+                            "$ref": "product/productResponses.json#/components/responses/product"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                },
+                "put":{
+                    "summary": "update a product",
+                    "operationId": "updateProduct",
+                    "tags": [
+                        "product"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"product/productParameters.json#/components/parameters/product"
+                        }
+                    ],
+                    "requestBody":{
+                        "$ref":"product/productRequestBody.json#/components/requestBodies/product"
+                    },
+                    "responses": {
+                        "200":{
+                            "$ref": "product/productResponses.json#/components/responses/product"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                },
+                "delete":{
+                    "summary": "delete a product",
+                    "operationId": "deleteProduct",
+                    "tags": [
+                        "product"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"product/productParameters.json#/components/parameters/product"
+                        }
+                    ],
+                    "responses": {
+                        "200":{
+                            "$ref": "commonResponses.json#/components/responses/default"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

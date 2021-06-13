@@ -1,0 +1,52 @@
+{
+    "components":{
+        "paths":{
+            "magazines":{
+                "get": {
+                    "summary": "Gets a List of all Magazines on the server",
+                    "operationId": "getMagazineList",
+                    "tags": [
+                        "magazines"
+                    ],
+                    "responses": {
+                        "200":{
+                            "description": "json object",
+                            "content": {
+                                "application/json":{
+                                    "schema":{
+                                        "$ref":"magazine/magazineSchema.json#/components/schemas/Magazines"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "magazineDetail":{
+                "put":{
+                    "summary": "update Magazine Database Row",
+                    "operationId": "updateMagazineData",
+                    "tags": [
+                        "magazines"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"magazine/magazineParameters.json#/components/parameters/magazine"
+                        }
+                    ],
+                    "requestBody":{
+                        "$ref":"magazine/magazineRequestBody.json#/components/requestBodies/magazine"
+                    },
+                    "responses": {
+                        "200":{
+                            "$ref":"magazine/magazineResponses.json#/components/responses/magazine"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

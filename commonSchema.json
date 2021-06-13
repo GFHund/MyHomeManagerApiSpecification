@@ -1,0 +1,22 @@
+{
+    "components":{
+        "schemas":{
+            "defaultReturn":{
+                "type":"object",
+                "properties": {
+                    "success":{
+                        "type":"boolean"
+                    }
+                }
+            },
+            "notFound":{
+                "type":"object",
+                "properties": {
+                    "message":{
+                        "type":"string"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "components":{
+        "paths":{
+            "setting":{
+                "get":{
+                    "summary": "get settings",
+                    "operationId": "getSettings",
+                    "tags": [
+                        "setting"
+                    ],
+                    "responses":{
+                        "200":{
+                            "$ref":"setting/settingResponses.json#/components/responses/settingListGet"
+                        }
+                    }
+                },
+                "put":{
+                    "summary": "update settings",
+                    "operationId": "getSettings",
+                    "tags": [
+                        "setting"
+                    ],
+                    "requestBody":{
+                        "$ref":"setting/settingRequestBody.json#/components/requestBodies/setting"
+                    },
+                    "responses":{
+                        "201":{
+                            "$ref":"commonResponses.json#/components/responses/default"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

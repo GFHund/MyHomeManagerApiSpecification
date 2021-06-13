@@ -1,0 +1,67 @@
+{
+    "components":{
+        "schemas":{
+            "login":{
+                "type": "object",
+                "properties": {
+                    "username":{
+                        "type":"string"
+                    },
+                    "passwort":{
+                        "type":"string"
+                    }
+                }
+            },
+            "authReturn":{
+				"type":"object",
+				"required":[
+					"success"
+				],
+				"properties":{
+				"success":{
+					"type":"boolean"
+				},
+				"token":{
+					"type":"string"
+					}
+				}
+			},
+            "userFilter":{
+                "type":"object",
+                "properties": {
+                    "username":{
+                        "type":"string"
+                    }
+                }
+            },
+            "users":{
+                "type": "array",
+                "items":{
+                    "$ref": "#/components/schemas/userPropertiesGet"
+                }
+            },
+            "userPropertiesGet":{
+                "type": "object",
+                "properties": {
+                    "id":{
+                        "type": "string"
+                    },
+                    "username":{
+                        "type": "string"
+                    }
+                }
+            },
+            "userPropertiesWrite":{
+                "type": "object",
+                "properties": {
+                    "username":{
+                        "type": "string"
+                    },
+                    "password":{
+                        "type":"string"
+                    }
+                }
+            }
+        }
+    }
+}

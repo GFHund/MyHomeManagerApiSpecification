@@ -1,0 +1,43 @@
+{
+    "components":{
+        "schemas":{
+            "MagazinesGet":{
+                "type": "object",
+                "properties": {
+                    "id":{
+                        "type": "string"
+                    },
+                    "name":{
+                        "type": "string"
+                    },
+                    "url":{
+                        "type": "string"
+                    }
+                }
+            },
+            "Magazines":{
+                "type": "array",
+                "items":{
+                    "$ref":"#/components/schemas/MagazinesGet"
+                }
+            },
+            "MagazinesItemWrite":{
+                "type": "object",
+                "properties": {
+                    "name":{
+                        "type": "string"
+                    },
+                    "url":{
+                        "type": "string"
+                    },
+                    "tags":{
+                        "type":"array",
+                        "items":{
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

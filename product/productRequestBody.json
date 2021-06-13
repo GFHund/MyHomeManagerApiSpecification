@@ -1,0 +1,16 @@
+{
+    "components":{
+        "requestBodies":{
+            "product":{
+                "required": true,
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":"productSchema.json#/components/schemas/ProductWrite"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

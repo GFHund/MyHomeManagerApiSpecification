@@ -1,0 +1,22 @@
+{
+    "components":{
+        "parameters":{
+            "product":{
+                "name":"productId",
+                "in":"path",
+                "required": true,
+                "schema":{
+                    "type": "string"
+                }
+            },
+            "productFilter":{
+                "name": "productTitle",
+                "in":"query",
+                "required":false,
+                "schema":{
+                    "type":"string"
+                }
+            }
+        }
+    }
+}

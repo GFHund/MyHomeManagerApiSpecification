@@ -1,0 +1,26 @@
+{
+    "components":{
+        "requestBodies":{
+            "shoppingList":{
+                "required": true,
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":"shoppingListSchema.json#/components/schemas/ShoppingListWrite"
+                        }
+                    }
+                }
+            },
+            "shoppingListMapping":{
+                "required": true,
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":"shoppingListSchema.json#/components/schemas/ShoppingListMappingWrite"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
