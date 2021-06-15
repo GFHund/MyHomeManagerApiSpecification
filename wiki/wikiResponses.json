@@ -6,10 +6,7 @@
                 "content": {
                     "application/json":{
                         "schema":{
-                            "type": "array",
-                            "items":{
-                                "type":"string"
-                            }
+                            "$ref":"wikiSchema.json#/components/schemas/wikiList"
                         }
                     }
                 }

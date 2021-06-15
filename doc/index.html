@@ -23579,7 +23579,7 @@ public class WikiApiExample {
         WikiSearch wikiSearch = ; // WikiSearch | 
         
         try {
-            array['String'] result = apiInstance.getWikiPages(wikiSearch);
+            array[WikiPageGet] result = apiInstance.getWikiPages(wikiSearch);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling WikiApi#getWikiPages");
@@ -23599,7 +23599,7 @@ public class WikiApiExample {
         WikiSearch wikiSearch = ; // WikiSearch | 
         
         try {
-            array['String'] result = apiInstance.getWikiPages(wikiSearch);
+            array[WikiPageGet] result = apiInstance.getWikiPages(wikiSearch);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling WikiApi#getWikiPages");
@@ -23621,7 +23621,7 @@ WikiSearch *wikiSearch = ; //  (optional)
 
 // get a List of Pages
 [apiInstance getWikiPagesWith:wikiSearch
-              completionHandler: ^(array['String'] output, NSError* error) {
+              completionHandler: ^(array[WikiPageGet] output, NSError* error) {
     if (output) {
         NSLog(@"%@", output);
     }
@@ -23675,7 +23675,7 @@ namespace Example
 
             try {
                 // get a List of Pages
-                array['String'] result = apiInstance.getWikiPages(wikiSearch);
+                array[WikiPageGet] result = apiInstance.getWikiPages(wikiSearch);
                 Debug.WriteLine(result);
             } catch (Exception e) {
                 Debug.Print("Exception when calling WikiApi.getWikiPages: " + e.Message );
@@ -23849,10 +23849,7 @@ $(document).ready(function() {
   "content" : {
     "application/json" : {
       "schema" : {
-        "type" : "array",
-        "items" : {
-          "type" : "string"
-        }
+        "$ref" : "#/components/schemas/wikiList"
       }
     }
   }

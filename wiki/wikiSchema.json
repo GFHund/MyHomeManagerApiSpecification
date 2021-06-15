@@ -12,7 +12,7 @@
             "wikiList":{
                 "type":"array",
                 "items":{
-                    "$ref":"#/components/schemas/wikiSimple"
+                    "$ref":"#/components/schemas/WikiPageGet"
                 }
             },
             "wikiSimple":{
