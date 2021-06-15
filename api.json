@@ -87,6 +87,19 @@
 
         "/setting":{
             "$ref":"setting.json#/components/paths/setting"
+        },
+
+        "/api/v1/todo/list":{
+            "$ref":"toDoList.json#/components/paths/toDoListList"
+        },
+        "/api/v1/todo/list/{listId}":{
+            "$ref":"toDoList.json#/components/paths/toDoListDetail"
+        },
+        "/api/v1/todo/list/{listId}/item":{
+            "$ref":"toDoList.json#/components/paths/toDoListItemList"
+        },
+        "/api/v1/todo/list/{listId}/item/{itemId}":{
+            "$ref":"toDoList.json#/components/paths/toDoListItemDetail"
         }
 
     }

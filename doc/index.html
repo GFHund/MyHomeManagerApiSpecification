@@ -1106,6 +1106,76 @@ ul.nav-tabs {
     }
   }
 };
+    defs["toDoListGet"] = {
+  "type" : "object",
+  "properties" : {
+    "id" : {
+      "type" : "string"
+    },
+    "title" : {
+      "type" : "string"
+    },
+    "active" : {
+      "type" : "boolean"
+    }
+  }
+};
+    defs["toDoListItemGet"] = {
+  "type" : "object",
+  "properties" : {
+    "id" : {
+      "type" : "string"
+    },
+    "text" : {
+      "type" : "string"
+    },
+    "active" : {
+      "type" : "boolean"
+    },
+    "completedUntil" : {
+      "type" : "integer"
+    },
+    "warningFrom" : {
+      "type" : "integer"
+    }
+  }
+};
+    defs["toDoListItemWrite"] = {
+  "type" : "object",
+  "properties" : {
+    "text" : {
+      "type" : "string"
+    },
+    "active" : {
+      "type" : "boolean"
+    },
+    "completedUntil" : {
+      "type" : "integer"
+    },
+    "warningFrom" : {
+      "type" : "integer"
+    }
+  }
+};
+    defs["toDoListWrite"] = {
+  "type" : "object",
+  "properties" : {
+    "title" : {
+      "type" : "string"
+    },
+    "active" : {
+      "type" : "boolean"
+    }
+  }
+};
+    defs["toDoSearch"] = {
+  "type" : "object",
+  "properties" : {
+    "searchword" : {
+      "type" : "string"
+    }
+  }
+};
     defs["userFilter"] = {
   "type" : "object",
   "properties" : {
@@ -1304,6 +1374,34 @@ ul.nav-tabs {
                     </li>
                     <li data-group="ShoppingList" data-name="updateShoppingListProduct" class="">
                       <a href="#api-ShoppingList-updateShoppingListProduct">updateShoppingListProduct</a>
+                    </li>
+                  <li class="nav-header" data-group="Todo"><a href="#api-Todo">API Methods - Todo</a></li>
+                    <li data-group="Todo" data-name="createToDoList" class="">
+                      <a href="#api-Todo-createToDoList">createToDoList</a>
+                    </li>
+                    <li data-group="Todo" data-name="createToDoListItem" class="">
+                      <a href="#api-Todo-createToDoListItem">createToDoListItem</a>
+                    </li>
+                    <li data-group="Todo" data-name="deleteToDoList" class="">
+                      <a href="#api-Todo-deleteToDoList">deleteToDoList</a>
+                    </li>
+                    <li data-group="Todo" data-name="deleteTodoListItem" class="">
+                      <a href="#api-Todo-deleteTodoListItem">deleteTodoListItem</a>
+                    </li>
+                    <li data-group="Todo" data-name="getToDoList" class="">
+                      <a href="#api-Todo-getToDoList">getToDoList</a>
+                    </li>
+                    <li data-group="Todo" data-name="getToDoListItem" class="">
+                      <a href="#api-Todo-getToDoListItem">getToDoListItem</a>
+                    </li>
+                    <li data-group="Todo" data-name="getToDoLists" class="">
+                      <a href="#api-Todo-getToDoLists">getToDoLists</a>
+                    </li>
+                    <li data-group="Todo" data-name="updateToDoList" class="">
+                      <a href="#api-Todo-updateToDoList">updateToDoList</a>
+                    </li>
+                    <li data-group="Todo" data-name="updateTodoListItem" class="">
+                      <a href="#api-Todo-updateTodoListItem">updateTodoListItem</a>
                     </li>
                   <li class="nav-header" data-group="User"><a href="#api-User">API Methods - User</a></li>
                     <li data-group="User" data-name="deleteUser" class="">
@@ -16460,6 +16558,3813 @@ $(document).ready(function() {
                                     </script>
                                   </div>
                                   <input id='responses-ShoppingList-updateShoppingListProduct-404-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                  </section>
+                <section id="api-Todo">
+                  <h1>Todo</h1>
+                    <div id="api-Todo-createToDoList">
+                      <article id="api-Todo-createToDoList-0" data-group="User" data-name="createToDoList" data-version="0">
+                        <div class="pull-left">
+                          <h1>createToDoList</h1>
+                          <p>create a new list</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/v1/todo/list</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Todo-createToDoList-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Todo-createToDoList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Todo-createToDoList-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Todo-createToDoList-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Todo-createToDoList-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Todo-createToDoList-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Todo-createToDoList-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Todo-createToDoList-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Todo-createToDoList-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Todo-createToDoList-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Todo-createToDoList-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Todo-createToDoList-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Todo-createToDoList-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
+ -H "Accept: application/json"\
+ -H "Content-Type: application/json"\
+ "http://slime.home:8080/api/v1/todo/list"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Todo-createToDoList-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.TodoApi;
+
+import java.io.File;
+import java.util.*;
+
+public class TodoApiExample {
+    public static void main(String[] args) {
+        
+        // Create an instance of the API class
+        TodoApi apiInstance = new TodoApi();
+        ToDoListWrite toDoListWrite = ; // ToDoListWrite | 
+        
+        try {
+            toDoListGet result = apiInstance.createToDoList(toDoListWrite);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TodoApi#createToDoList");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Todo-createToDoList-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.TodoApi;
+
+public class TodoApiExample {
+    public static void main(String[] args) {
+        TodoApi apiInstance = new TodoApi();
+        ToDoListWrite toDoListWrite = ; // ToDoListWrite | 
+        
+        try {
+            toDoListGet result = apiInstance.createToDoList(toDoListWrite);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TodoApi#createToDoList");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Todo-createToDoList-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Todo-createToDoList-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+TodoApi *apiInstance = [[TodoApi alloc] init];
+ToDoListWrite *toDoListWrite = ; //  (optional)
+
+// create a new list
+[apiInstance createToDoListWith:toDoListWrite
+              completionHandler: ^(toDoListGet output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-createToDoList-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var MyHomeManagerApi = require('my_home_manager_api');
+
+// Create an instance of the API class
+var api = new MyHomeManagerApi.TodoApi()
+var opts = {
+  'toDoListWrite':  // {ToDoListWrite} 
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.createToDoList(opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Todo-createToDoList-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Todo-createToDoList-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class createToDoListExample
+    {
+        public void main()
+        {
+            
+            // Create an instance of the API class
+            var apiInstance = new TodoApi();
+            var toDoListWrite = new ToDoListWrite(); // ToDoListWrite |  (optional) 
+
+            try {
+                // create a new list
+                toDoListGet result = apiInstance.createToDoList(toDoListWrite);
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling TodoApi.createToDoList: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-createToDoList-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\TodoApi();
+$toDoListWrite = ; // ToDoListWrite | 
+
+try {
+    $result = $api_instance->createToDoList($toDoListWrite);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TodoApi->createToDoList: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-createToDoList-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::TodoApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::TodoApi->new();
+my $toDoListWrite = WWW::OPenAPIClient::Object::ToDoListWrite->new(); # ToDoListWrite | 
+
+eval { 
+    my $result = $api_instance->createToDoList(toDoListWrite => $toDoListWrite);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling TodoApi->createToDoList: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-createToDoList-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.TodoApi()
+toDoListWrite =  # ToDoListWrite |  (optional)
+
+try: 
+    # create a new list
+    api_response = api_instance.create_to_do_list(toDoListWrite=toDoListWrite)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling TodoApi->createToDoList: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-createToDoList-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate TodoApi;
+
+pub fn main() {
+    let toDoListWrite = ; // ToDoListWrite
+
+    let mut context = TodoApi::Context::default();
+    let result = client.createToDoList(toDoListWrite, &context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">toDoListWrite </td>
+<td>
+<p class="marked"></p>
+<script>
+$(document).ready(function() {
+  var schemaWrapper = {
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/toDoListWrite"
+      }
+    }
+  }
+};
+
+  var schema = findNode('schema',schemaWrapper).schema;
+  if (!schema) {
+    schema = schemaWrapper.schema;
+  }
+  if (schema.$ref != null) {
+    schema = defsParser.$refs.get(schema.$ref);
+  } else {
+    schemaWrapper.definitions = Object.assign({}, defs);
+    $RefParser.dereference(schemaWrapper).catch(function(err) {
+      console.log(err);
+    });
+  }
+
+  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+  var result = $('#d2e199_createToDoList_toDoListWrite');
+  result.empty();
+  result.append(view.render());
+});
+</script>
+<div id="d2e199_createToDoList_toDoListWrite"></div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-Todo-createToDoList-title-201"></h3>
+                            <p id="examples-Todo-createToDoList-description-201" class="marked"></p>
+                            <script>
+                              var responseTodo201_description = `gets the successful created list back`;
+                              var responseTodo201_description_break = responseTodo201_description.indexOf('\n');
+                              if (responseTodo201_description_break == -1) {
+                                $("#examples-Todo-createToDoList-title-201").text("Status: 201 - " + responseTodo201_description);
+                              } else {
+                                $("#examples-Todo-createToDoList-title-201").text("Status: 201 - " + responseTodo201_description.substring(0, responseTodo201_description_break));
+                                $("#examples-Todo-createToDoList-description-201").html(responseTodo201_description.substring(responseTodo201_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Todo-createToDoList-201" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Todo-createToDoList-201-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Todo-createToDoList-201-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Todo-createToDoList-201-schema">
+                                  <div id="responses-Todo-createToDoList-schema-201" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "gets the successful created list back",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/toDoListGet"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Todo-createToDoList-201-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Todo-createToDoList-schema-201');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Todo-createToDoList-201-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Todo-createToDoListItem">
+                      <article id="api-Todo-createToDoListItem-0" data-group="User" data-name="createToDoListItem" data-version="0">
+                        <div class="pull-left">
+                          <h1>createToDoListItem</h1>
+                          <p>insert a new todo item into the list</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/v1/todo/list/{listId}/item</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Todo-createToDoListItem-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Todo-createToDoListItem-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Todo-createToDoListItem-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Todo-createToDoListItem-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Todo-createToDoListItem-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Todo-createToDoListItem-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Todo-createToDoListItem-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Todo-createToDoListItem-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Todo-createToDoListItem-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Todo-createToDoListItem-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Todo-createToDoListItem-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Todo-createToDoListItem-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Todo-createToDoListItem-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
+ -H "Accept: application/json"\
+ -H "Content-Type: application/json"\
+ "http://slime.home:8080/api/v1/todo/list/{listId}/item"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Todo-createToDoListItem-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.TodoApi;
+
+import java.io.File;
+import java.util.*;
+
+public class TodoApiExample {
+    public static void main(String[] args) {
+        
+        // Create an instance of the API class
+        TodoApi apiInstance = new TodoApi();
+        String listId = listId_example; // String | 
+        ToDoListItemWrite toDoListItemWrite = ; // ToDoListItemWrite | 
+        
+        try {
+            toDoListItemGet result = apiInstance.createToDoListItem(listId, toDoListItemWrite);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TodoApi#createToDoListItem");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Todo-createToDoListItem-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.TodoApi;
+
+public class TodoApiExample {
+    public static void main(String[] args) {
+        TodoApi apiInstance = new TodoApi();
+        String listId = listId_example; // String | 
+        ToDoListItemWrite toDoListItemWrite = ; // ToDoListItemWrite | 
+        
+        try {
+            toDoListItemGet result = apiInstance.createToDoListItem(listId, toDoListItemWrite);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TodoApi#createToDoListItem");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Todo-createToDoListItem-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Todo-createToDoListItem-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+TodoApi *apiInstance = [[TodoApi alloc] init];
+String *listId = listId_example; //  (default to null)
+ToDoListItemWrite *toDoListItemWrite = ; //  (optional)
+
+// insert a new todo item into the list
+[apiInstance createToDoListItemWith:listId
+    toDoListItemWrite:toDoListItemWrite
+              completionHandler: ^(toDoListItemGet output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-createToDoListItem-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var MyHomeManagerApi = require('my_home_manager_api');
+
+// Create an instance of the API class
+var api = new MyHomeManagerApi.TodoApi()
+var listId = listId_example; // {String} 
+var opts = {
+  'toDoListItemWrite':  // {ToDoListItemWrite} 
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.createToDoListItem(listId, opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Todo-createToDoListItem-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Todo-createToDoListItem-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class createToDoListItemExample
+    {
+        public void main()
+        {
+            
+            // Create an instance of the API class
+            var apiInstance = new TodoApi();
+            var listId = listId_example;  // String |  (default to null)
+            var toDoListItemWrite = new ToDoListItemWrite(); // ToDoListItemWrite |  (optional) 
+
+            try {
+                // insert a new todo item into the list
+                toDoListItemGet result = apiInstance.createToDoListItem(listId, toDoListItemWrite);
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling TodoApi.createToDoListItem: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-createToDoListItem-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\TodoApi();
+$listId = listId_example; // String | 
+$toDoListItemWrite = ; // ToDoListItemWrite | 
+
+try {
+    $result = $api_instance->createToDoListItem($listId, $toDoListItemWrite);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TodoApi->createToDoListItem: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-createToDoListItem-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::TodoApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::TodoApi->new();
+my $listId = listId_example; # String | 
+my $toDoListItemWrite = WWW::OPenAPIClient::Object::ToDoListItemWrite->new(); # ToDoListItemWrite | 
+
+eval { 
+    my $result = $api_instance->createToDoListItem(listId => $listId, toDoListItemWrite => $toDoListItemWrite);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling TodoApi->createToDoListItem: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-createToDoListItem-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.TodoApi()
+listId = listId_example # String |  (default to null)
+toDoListItemWrite =  # ToDoListItemWrite |  (optional)
+
+try: 
+    # insert a new todo item into the list
+    api_response = api_instance.create_to_do_list_item(listId, toDoListItemWrite=toDoListItemWrite)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling TodoApi->createToDoListItem: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-createToDoListItem-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate TodoApi;
+
+pub fn main() {
+    let listId = listId_example; // String
+    let toDoListItemWrite = ; // ToDoListItemWrite
+
+    let mut context = TodoApi::Context::default();
+    let result = client.createToDoListItem(listId, toDoListItemWrite, &context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">listId*</td>
+<td>
+
+
+    <div id="d2e199_createToDoListItem_listId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">toDoListItemWrite </td>
+<td>
+<p class="marked">properties of the new list item</p>
+<script>
+$(document).ready(function() {
+  var schemaWrapper = {
+  "description" : "properties of the new list item",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/toDoListItemWrite"
+      }
+    }
+  }
+};
+
+  var schema = findNode('schema',schemaWrapper).schema;
+  if (!schema) {
+    schema = schemaWrapper.schema;
+  }
+  if (schema.$ref != null) {
+    schema = defsParser.$refs.get(schema.$ref);
+  } else {
+    schemaWrapper.definitions = Object.assign({}, defs);
+    $RefParser.dereference(schemaWrapper).catch(function(err) {
+      console.log(err);
+    });
+  }
+
+  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+  var result = $('#d2e199_createToDoListItem_toDoListItemWrite');
+  result.empty();
+  result.append(view.render());
+});
+</script>
+<div id="d2e199_createToDoListItem_toDoListItemWrite"></div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-Todo-createToDoListItem-title-201"></h3>
+                            <p id="examples-Todo-createToDoListItem-description-201" class="marked"></p>
+                            <script>
+                              var responseTodo201_description = `create a new list item`;
+                              var responseTodo201_description_break = responseTodo201_description.indexOf('\n');
+                              if (responseTodo201_description_break == -1) {
+                                $("#examples-Todo-createToDoListItem-title-201").text("Status: 201 - " + responseTodo201_description);
+                              } else {
+                                $("#examples-Todo-createToDoListItem-title-201").text("Status: 201 - " + responseTodo201_description.substring(0, responseTodo201_description_break));
+                                $("#examples-Todo-createToDoListItem-description-201").html(responseTodo201_description.substring(responseTodo201_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Todo-createToDoListItem-201" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Todo-createToDoListItem-201-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Todo-createToDoListItem-201-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Todo-createToDoListItem-201-schema">
+                                  <div id="responses-Todo-createToDoListItem-schema-201" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "create a new list item",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/toDoListItemGet"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Todo-createToDoListItem-201-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Todo-createToDoListItem-schema-201');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Todo-createToDoListItem-201-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                            <h3 id="examples-Todo-createToDoListItem-title-404"></h3>
+                            <p id="examples-Todo-createToDoListItem-description-404" class="marked"></p>
+                            <script>
+                              var responseTodo404_description = `not found`;
+                              var responseTodo404_description_break = responseTodo404_description.indexOf('\n');
+                              if (responseTodo404_description_break == -1) {
+                                $("#examples-Todo-createToDoListItem-title-404").text("Status: 404 - " + responseTodo404_description);
+                              } else {
+                                $("#examples-Todo-createToDoListItem-title-404").text("Status: 404 - " + responseTodo404_description.substring(0, responseTodo404_description_break));
+                                $("#examples-Todo-createToDoListItem-description-404").html(responseTodo404_description.substring(responseTodo404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Todo-createToDoListItem-404" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Todo-createToDoListItem-404-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Todo-createToDoListItem-404-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Todo-createToDoListItem-404-schema">
+                                  <div id="responses-Todo-createToDoListItem-schema-404" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "not found",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/notFound"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Todo-createToDoListItem-404-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Todo-createToDoListItem-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Todo-createToDoListItem-404-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Todo-deleteToDoList">
+                      <article id="api-Todo-deleteToDoList-0" data-group="User" data-name="deleteToDoList" data-version="0">
+                        <div class="pull-left">
+                          <h1>deleteToDoList</h1>
+                          <p>delete list</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/api/v1/todo/list/{listId}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Todo-deleteToDoList-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Todo-deleteToDoList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Todo-deleteToDoList-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Todo-deleteToDoList-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Todo-deleteToDoList-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Todo-deleteToDoList-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Todo-deleteToDoList-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Todo-deleteToDoList-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Todo-deleteToDoList-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Todo-deleteToDoList-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Todo-deleteToDoList-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Todo-deleteToDoList-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Todo-deleteToDoList-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE\
+ -H "Accept: application/json"\
+ "http://slime.home:8080/api/v1/todo/list/{listId}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Todo-deleteToDoList-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.TodoApi;
+
+import java.io.File;
+import java.util.*;
+
+public class TodoApiExample {
+    public static void main(String[] args) {
+        
+        // Create an instance of the API class
+        TodoApi apiInstance = new TodoApi();
+        String listId = listId_example; // String | 
+        
+        try {
+            defaultReturn result = apiInstance.deleteToDoList(listId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TodoApi#deleteToDoList");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Todo-deleteToDoList-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.TodoApi;
+
+public class TodoApiExample {
+    public static void main(String[] args) {
+        TodoApi apiInstance = new TodoApi();
+        String listId = listId_example; // String | 
+        
+        try {
+            defaultReturn result = apiInstance.deleteToDoList(listId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TodoApi#deleteToDoList");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Todo-deleteToDoList-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Todo-deleteToDoList-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+TodoApi *apiInstance = [[TodoApi alloc] init];
+String *listId = listId_example; //  (default to null)
+
+// delete list
+[apiInstance deleteToDoListWith:listId
+              completionHandler: ^(defaultReturn output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-deleteToDoList-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var MyHomeManagerApi = require('my_home_manager_api');
+
+// Create an instance of the API class
+var api = new MyHomeManagerApi.TodoApi()
+var listId = listId_example; // {String} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.deleteToDoList(listId, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Todo-deleteToDoList-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Todo-deleteToDoList-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class deleteToDoListExample
+    {
+        public void main()
+        {
+            
+            // Create an instance of the API class
+            var apiInstance = new TodoApi();
+            var listId = listId_example;  // String |  (default to null)
+
+            try {
+                // delete list
+                defaultReturn result = apiInstance.deleteToDoList(listId);
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling TodoApi.deleteToDoList: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-deleteToDoList-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\TodoApi();
+$listId = listId_example; // String | 
+
+try {
+    $result = $api_instance->deleteToDoList($listId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TodoApi->deleteToDoList: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-deleteToDoList-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::TodoApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::TodoApi->new();
+my $listId = listId_example; # String | 
+
+eval { 
+    my $result = $api_instance->deleteToDoList(listId => $listId);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling TodoApi->deleteToDoList: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-deleteToDoList-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.TodoApi()
+listId = listId_example # String |  (default to null)
+
+try: 
+    # delete list
+    api_response = api_instance.delete_to_do_list(listId)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling TodoApi->deleteToDoList: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-deleteToDoList-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate TodoApi;
+
+pub fn main() {
+    let listId = listId_example; // String
+
+    let mut context = TodoApi::Context::default();
+    let result = client.deleteToDoList(listId, &context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">listId*</td>
+<td>
+
+
+    <div id="d2e199_deleteToDoList_listId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-Todo-deleteToDoList-title-200"></h3>
+                            <p id="examples-Todo-deleteToDoList-description-200" class="marked"></p>
+                            <script>
+                              var responseTodo200_description = `returns success of the operation`;
+                              var responseTodo200_description_break = responseTodo200_description.indexOf('\n');
+                              if (responseTodo200_description_break == -1) {
+                                $("#examples-Todo-deleteToDoList-title-200").text("Status: 200 - " + responseTodo200_description);
+                              } else {
+                                $("#examples-Todo-deleteToDoList-title-200").text("Status: 200 - " + responseTodo200_description.substring(0, responseTodo200_description_break));
+                                $("#examples-Todo-deleteToDoList-description-200").html(responseTodo200_description.substring(responseTodo200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Todo-deleteToDoList-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Todo-deleteToDoList-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Todo-deleteToDoList-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Todo-deleteToDoList-200-schema">
+                                  <div id="responses-Todo-deleteToDoList-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "returns success of the operation",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/defaultReturn"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Todo-deleteToDoList-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Todo-deleteToDoList-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Todo-deleteToDoList-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                            <h3 id="examples-Todo-deleteToDoList-title-404"></h3>
+                            <p id="examples-Todo-deleteToDoList-description-404" class="marked"></p>
+                            <script>
+                              var responseTodo404_description = `not found`;
+                              var responseTodo404_description_break = responseTodo404_description.indexOf('\n');
+                              if (responseTodo404_description_break == -1) {
+                                $("#examples-Todo-deleteToDoList-title-404").text("Status: 404 - " + responseTodo404_description);
+                              } else {
+                                $("#examples-Todo-deleteToDoList-title-404").text("Status: 404 - " + responseTodo404_description.substring(0, responseTodo404_description_break));
+                                $("#examples-Todo-deleteToDoList-description-404").html(responseTodo404_description.substring(responseTodo404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Todo-deleteToDoList-404" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Todo-deleteToDoList-404-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Todo-deleteToDoList-404-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Todo-deleteToDoList-404-schema">
+                                  <div id="responses-Todo-deleteToDoList-schema-404" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "not found",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/notFound"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Todo-deleteToDoList-404-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Todo-deleteToDoList-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Todo-deleteToDoList-404-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Todo-deleteTodoListItem">
+                      <article id="api-Todo-deleteTodoListItem-0" data-group="User" data-name="deleteTodoListItem" data-version="0">
+                        <div class="pull-left">
+                          <h1>deleteTodoListItem</h1>
+                          <p>delete the list item</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/api/v1/todo/list/{listId}/item/{itemId}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Todo-deleteTodoListItem-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Todo-deleteTodoListItem-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Todo-deleteTodoListItem-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Todo-deleteTodoListItem-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Todo-deleteTodoListItem-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Todo-deleteTodoListItem-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Todo-deleteTodoListItem-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Todo-deleteTodoListItem-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Todo-deleteTodoListItem-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Todo-deleteTodoListItem-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Todo-deleteTodoListItem-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Todo-deleteTodoListItem-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Todo-deleteTodoListItem-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE\
+ -H "Accept: application/json"\
+ "http://slime.home:8080/api/v1/todo/list/{listId}/item/{itemId}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Todo-deleteTodoListItem-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.TodoApi;
+
+import java.io.File;
+import java.util.*;
+
+public class TodoApiExample {
+    public static void main(String[] args) {
+        
+        // Create an instance of the API class
+        TodoApi apiInstance = new TodoApi();
+        String listId = listId_example; // String | 
+        String itemId = itemId_example; // String | 
+        
+        try {
+            defaultReturn result = apiInstance.deleteTodoListItem(listId, itemId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TodoApi#deleteTodoListItem");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Todo-deleteTodoListItem-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.TodoApi;
+
+public class TodoApiExample {
+    public static void main(String[] args) {
+        TodoApi apiInstance = new TodoApi();
+        String listId = listId_example; // String | 
+        String itemId = itemId_example; // String | 
+        
+        try {
+            defaultReturn result = apiInstance.deleteTodoListItem(listId, itemId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TodoApi#deleteTodoListItem");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Todo-deleteTodoListItem-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Todo-deleteTodoListItem-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+TodoApi *apiInstance = [[TodoApi alloc] init];
+String *listId = listId_example; //  (default to null)
+String *itemId = itemId_example; //  (default to null)
+
+// delete the list item
+[apiInstance deleteTodoListItemWith:listId
+    itemId:itemId
+              completionHandler: ^(defaultReturn output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-deleteTodoListItem-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var MyHomeManagerApi = require('my_home_manager_api');
+
+// Create an instance of the API class
+var api = new MyHomeManagerApi.TodoApi()
+var listId = listId_example; // {String} 
+var itemId = itemId_example; // {String} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.deleteTodoListItem(listId, itemId, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Todo-deleteTodoListItem-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Todo-deleteTodoListItem-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class deleteTodoListItemExample
+    {
+        public void main()
+        {
+            
+            // Create an instance of the API class
+            var apiInstance = new TodoApi();
+            var listId = listId_example;  // String |  (default to null)
+            var itemId = itemId_example;  // String |  (default to null)
+
+            try {
+                // delete the list item
+                defaultReturn result = apiInstance.deleteTodoListItem(listId, itemId);
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling TodoApi.deleteTodoListItem: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-deleteTodoListItem-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\TodoApi();
+$listId = listId_example; // String | 
+$itemId = itemId_example; // String | 
+
+try {
+    $result = $api_instance->deleteTodoListItem($listId, $itemId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TodoApi->deleteTodoListItem: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-deleteTodoListItem-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::TodoApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::TodoApi->new();
+my $listId = listId_example; # String | 
+my $itemId = itemId_example; # String | 
+
+eval { 
+    my $result = $api_instance->deleteTodoListItem(listId => $listId, itemId => $itemId);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling TodoApi->deleteTodoListItem: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-deleteTodoListItem-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.TodoApi()
+listId = listId_example # String |  (default to null)
+itemId = itemId_example # String |  (default to null)
+
+try: 
+    # delete the list item
+    api_response = api_instance.delete_todo_list_item(listId, itemId)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling TodoApi->deleteTodoListItem: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-deleteTodoListItem-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate TodoApi;
+
+pub fn main() {
+    let listId = listId_example; // String
+    let itemId = itemId_example; // String
+
+    let mut context = TodoApi::Context::default();
+    let result = client.deleteTodoListItem(listId, itemId, &context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">listId*</td>
+<td>
+
+
+    <div id="d2e199_deleteTodoListItem_listId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                  <tr><td style="width:150px;">itemId*</td>
+<td>
+
+
+    <div id="d2e199_deleteTodoListItem_itemId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-Todo-deleteTodoListItem-title-200"></h3>
+                            <p id="examples-Todo-deleteTodoListItem-description-200" class="marked"></p>
+                            <script>
+                              var responseTodo200_description = `returns success of the operation`;
+                              var responseTodo200_description_break = responseTodo200_description.indexOf('\n');
+                              if (responseTodo200_description_break == -1) {
+                                $("#examples-Todo-deleteTodoListItem-title-200").text("Status: 200 - " + responseTodo200_description);
+                              } else {
+                                $("#examples-Todo-deleteTodoListItem-title-200").text("Status: 200 - " + responseTodo200_description.substring(0, responseTodo200_description_break));
+                                $("#examples-Todo-deleteTodoListItem-description-200").html(responseTodo200_description.substring(responseTodo200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Todo-deleteTodoListItem-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Todo-deleteTodoListItem-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Todo-deleteTodoListItem-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Todo-deleteTodoListItem-200-schema">
+                                  <div id="responses-Todo-deleteTodoListItem-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "returns success of the operation",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/defaultReturn"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Todo-deleteTodoListItem-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Todo-deleteTodoListItem-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Todo-deleteTodoListItem-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                            <h3 id="examples-Todo-deleteTodoListItem-title-404"></h3>
+                            <p id="examples-Todo-deleteTodoListItem-description-404" class="marked"></p>
+                            <script>
+                              var responseTodo404_description = `not found`;
+                              var responseTodo404_description_break = responseTodo404_description.indexOf('\n');
+                              if (responseTodo404_description_break == -1) {
+                                $("#examples-Todo-deleteTodoListItem-title-404").text("Status: 404 - " + responseTodo404_description);
+                              } else {
+                                $("#examples-Todo-deleteTodoListItem-title-404").text("Status: 404 - " + responseTodo404_description.substring(0, responseTodo404_description_break));
+                                $("#examples-Todo-deleteTodoListItem-description-404").html(responseTodo404_description.substring(responseTodo404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Todo-deleteTodoListItem-404" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Todo-deleteTodoListItem-404-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Todo-deleteTodoListItem-404-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Todo-deleteTodoListItem-404-schema">
+                                  <div id="responses-Todo-deleteTodoListItem-schema-404" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "not found",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/notFound"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Todo-deleteTodoListItem-404-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Todo-deleteTodoListItem-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Todo-deleteTodoListItem-404-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Todo-getToDoList">
+                      <article id="api-Todo-getToDoList-0" data-group="User" data-name="getToDoList" data-version="0">
+                        <div class="pull-left">
+                          <h1>getToDoList</h1>
+                          <p>gets the toDo list specified in the listId property</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/todo/list/{listId}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Todo-getToDoList-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Todo-getToDoList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Todo-getToDoList-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Todo-getToDoList-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Todo-getToDoList-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Todo-getToDoList-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Todo-getToDoList-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Todo-getToDoList-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Todo-getToDoList-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Todo-getToDoList-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Todo-getToDoList-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Todo-getToDoList-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Todo-getToDoList-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+ -H "Accept: application/json"\
+ "http://slime.home:8080/api/v1/todo/list/{listId}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Todo-getToDoList-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.TodoApi;
+
+import java.io.File;
+import java.util.*;
+
+public class TodoApiExample {
+    public static void main(String[] args) {
+        
+        // Create an instance of the API class
+        TodoApi apiInstance = new TodoApi();
+        String listId = listId_example; // String | 
+        
+        try {
+            toDoListGet result = apiInstance.getToDoList(listId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TodoApi#getToDoList");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Todo-getToDoList-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.TodoApi;
+
+public class TodoApiExample {
+    public static void main(String[] args) {
+        TodoApi apiInstance = new TodoApi();
+        String listId = listId_example; // String | 
+        
+        try {
+            toDoListGet result = apiInstance.getToDoList(listId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TodoApi#getToDoList");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Todo-getToDoList-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Todo-getToDoList-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+TodoApi *apiInstance = [[TodoApi alloc] init];
+String *listId = listId_example; //  (default to null)
+
+// gets the toDo list specified in the listId property
+[apiInstance getToDoListWith:listId
+              completionHandler: ^(toDoListGet output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-getToDoList-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var MyHomeManagerApi = require('my_home_manager_api');
+
+// Create an instance of the API class
+var api = new MyHomeManagerApi.TodoApi()
+var listId = listId_example; // {String} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getToDoList(listId, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Todo-getToDoList-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Todo-getToDoList-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class getToDoListExample
+    {
+        public void main()
+        {
+            
+            // Create an instance of the API class
+            var apiInstance = new TodoApi();
+            var listId = listId_example;  // String |  (default to null)
+
+            try {
+                // gets the toDo list specified in the listId property
+                toDoListGet result = apiInstance.getToDoList(listId);
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling TodoApi.getToDoList: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-getToDoList-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\TodoApi();
+$listId = listId_example; // String | 
+
+try {
+    $result = $api_instance->getToDoList($listId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TodoApi->getToDoList: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-getToDoList-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::TodoApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::TodoApi->new();
+my $listId = listId_example; # String | 
+
+eval { 
+    my $result = $api_instance->getToDoList(listId => $listId);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling TodoApi->getToDoList: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-getToDoList-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.TodoApi()
+listId = listId_example # String |  (default to null)
+
+try: 
+    # gets the toDo list specified in the listId property
+    api_response = api_instance.get_to_do_list(listId)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling TodoApi->getToDoList: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-getToDoList-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate TodoApi;
+
+pub fn main() {
+    let listId = listId_example; // String
+
+    let mut context = TodoApi::Context::default();
+    let result = client.getToDoList(listId, &context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">listId*</td>
+<td>
+
+
+    <div id="d2e199_getToDoList_listId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-Todo-getToDoList-title-200"></h3>
+                            <p id="examples-Todo-getToDoList-description-200" class="marked"></p>
+                            <script>
+                              var responseTodo200_description = `gets the successful created list back`;
+                              var responseTodo200_description_break = responseTodo200_description.indexOf('\n');
+                              if (responseTodo200_description_break == -1) {
+                                $("#examples-Todo-getToDoList-title-200").text("Status: 200 - " + responseTodo200_description);
+                              } else {
+                                $("#examples-Todo-getToDoList-title-200").text("Status: 200 - " + responseTodo200_description.substring(0, responseTodo200_description_break));
+                                $("#examples-Todo-getToDoList-description-200").html(responseTodo200_description.substring(responseTodo200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Todo-getToDoList-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Todo-getToDoList-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Todo-getToDoList-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Todo-getToDoList-200-schema">
+                                  <div id="responses-Todo-getToDoList-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "gets the successful created list back",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/toDoListGet"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Todo-getToDoList-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Todo-getToDoList-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Todo-getToDoList-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                            <h3 id="examples-Todo-getToDoList-title-404"></h3>
+                            <p id="examples-Todo-getToDoList-description-404" class="marked"></p>
+                            <script>
+                              var responseTodo404_description = `not found`;
+                              var responseTodo404_description_break = responseTodo404_description.indexOf('\n');
+                              if (responseTodo404_description_break == -1) {
+                                $("#examples-Todo-getToDoList-title-404").text("Status: 404 - " + responseTodo404_description);
+                              } else {
+                                $("#examples-Todo-getToDoList-title-404").text("Status: 404 - " + responseTodo404_description.substring(0, responseTodo404_description_break));
+                                $("#examples-Todo-getToDoList-description-404").html(responseTodo404_description.substring(responseTodo404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Todo-getToDoList-404" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Todo-getToDoList-404-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Todo-getToDoList-404-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Todo-getToDoList-404-schema">
+                                  <div id="responses-Todo-getToDoList-schema-404" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "not found",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/notFound"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Todo-getToDoList-404-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Todo-getToDoList-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Todo-getToDoList-404-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Todo-getToDoListItem">
+                      <article id="api-Todo-getToDoListItem-0" data-group="User" data-name="getToDoListItem" data-version="0">
+                        <div class="pull-left">
+                          <h1>getToDoListItem</h1>
+                          <p>get the list item</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/todo/list/{listId}/item/{itemId}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Todo-getToDoListItem-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Todo-getToDoListItem-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Todo-getToDoListItem-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Todo-getToDoListItem-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Todo-getToDoListItem-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Todo-getToDoListItem-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Todo-getToDoListItem-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Todo-getToDoListItem-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Todo-getToDoListItem-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Todo-getToDoListItem-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Todo-getToDoListItem-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Todo-getToDoListItem-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Todo-getToDoListItem-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+ -H "Accept: application/json"\
+ "http://slime.home:8080/api/v1/todo/list/{listId}/item/{itemId}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Todo-getToDoListItem-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.TodoApi;
+
+import java.io.File;
+import java.util.*;
+
+public class TodoApiExample {
+    public static void main(String[] args) {
+        
+        // Create an instance of the API class
+        TodoApi apiInstance = new TodoApi();
+        String listId = listId_example; // String | 
+        String itemId = itemId_example; // String | 
+        
+        try {
+            toDoListItemGet result = apiInstance.getToDoListItem(listId, itemId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TodoApi#getToDoListItem");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Todo-getToDoListItem-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.TodoApi;
+
+public class TodoApiExample {
+    public static void main(String[] args) {
+        TodoApi apiInstance = new TodoApi();
+        String listId = listId_example; // String | 
+        String itemId = itemId_example; // String | 
+        
+        try {
+            toDoListItemGet result = apiInstance.getToDoListItem(listId, itemId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TodoApi#getToDoListItem");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Todo-getToDoListItem-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Todo-getToDoListItem-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+TodoApi *apiInstance = [[TodoApi alloc] init];
+String *listId = listId_example; //  (default to null)
+String *itemId = itemId_example; //  (default to null)
+
+// get the list item
+[apiInstance getToDoListItemWith:listId
+    itemId:itemId
+              completionHandler: ^(toDoListItemGet output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-getToDoListItem-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var MyHomeManagerApi = require('my_home_manager_api');
+
+// Create an instance of the API class
+var api = new MyHomeManagerApi.TodoApi()
+var listId = listId_example; // {String} 
+var itemId = itemId_example; // {String} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getToDoListItem(listId, itemId, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Todo-getToDoListItem-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Todo-getToDoListItem-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class getToDoListItemExample
+    {
+        public void main()
+        {
+            
+            // Create an instance of the API class
+            var apiInstance = new TodoApi();
+            var listId = listId_example;  // String |  (default to null)
+            var itemId = itemId_example;  // String |  (default to null)
+
+            try {
+                // get the list item
+                toDoListItemGet result = apiInstance.getToDoListItem(listId, itemId);
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling TodoApi.getToDoListItem: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-getToDoListItem-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\TodoApi();
+$listId = listId_example; // String | 
+$itemId = itemId_example; // String | 
+
+try {
+    $result = $api_instance->getToDoListItem($listId, $itemId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TodoApi->getToDoListItem: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-getToDoListItem-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::TodoApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::TodoApi->new();
+my $listId = listId_example; # String | 
+my $itemId = itemId_example; # String | 
+
+eval { 
+    my $result = $api_instance->getToDoListItem(listId => $listId, itemId => $itemId);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling TodoApi->getToDoListItem: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-getToDoListItem-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.TodoApi()
+listId = listId_example # String |  (default to null)
+itemId = itemId_example # String |  (default to null)
+
+try: 
+    # get the list item
+    api_response = api_instance.get_to_do_list_item(listId, itemId)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling TodoApi->getToDoListItem: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-getToDoListItem-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate TodoApi;
+
+pub fn main() {
+    let listId = listId_example; // String
+    let itemId = itemId_example; // String
+
+    let mut context = TodoApi::Context::default();
+    let result = client.getToDoListItem(listId, itemId, &context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">listId*</td>
+<td>
+
+
+    <div id="d2e199_getToDoListItem_listId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                  <tr><td style="width:150px;">itemId*</td>
+<td>
+
+
+    <div id="d2e199_getToDoListItem_itemId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-Todo-getToDoListItem-title-200"></h3>
+                            <p id="examples-Todo-getToDoListItem-description-200" class="marked"></p>
+                            <script>
+                              var responseTodo200_description = `create a new list item`;
+                              var responseTodo200_description_break = responseTodo200_description.indexOf('\n');
+                              if (responseTodo200_description_break == -1) {
+                                $("#examples-Todo-getToDoListItem-title-200").text("Status: 200 - " + responseTodo200_description);
+                              } else {
+                                $("#examples-Todo-getToDoListItem-title-200").text("Status: 200 - " + responseTodo200_description.substring(0, responseTodo200_description_break));
+                                $("#examples-Todo-getToDoListItem-description-200").html(responseTodo200_description.substring(responseTodo200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Todo-getToDoListItem-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Todo-getToDoListItem-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Todo-getToDoListItem-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Todo-getToDoListItem-200-schema">
+                                  <div id="responses-Todo-getToDoListItem-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "create a new list item",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/toDoListItemGet"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Todo-getToDoListItem-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Todo-getToDoListItem-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Todo-getToDoListItem-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                            <h3 id="examples-Todo-getToDoListItem-title-404"></h3>
+                            <p id="examples-Todo-getToDoListItem-description-404" class="marked"></p>
+                            <script>
+                              var responseTodo404_description = `not found`;
+                              var responseTodo404_description_break = responseTodo404_description.indexOf('\n');
+                              if (responseTodo404_description_break == -1) {
+                                $("#examples-Todo-getToDoListItem-title-404").text("Status: 404 - " + responseTodo404_description);
+                              } else {
+                                $("#examples-Todo-getToDoListItem-title-404").text("Status: 404 - " + responseTodo404_description.substring(0, responseTodo404_description_break));
+                                $("#examples-Todo-getToDoListItem-description-404").html(responseTodo404_description.substring(responseTodo404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Todo-getToDoListItem-404" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Todo-getToDoListItem-404-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Todo-getToDoListItem-404-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Todo-getToDoListItem-404-schema">
+                                  <div id="responses-Todo-getToDoListItem-schema-404" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "not found",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/notFound"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Todo-getToDoListItem-404-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Todo-getToDoListItem-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Todo-getToDoListItem-404-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Todo-getToDoLists">
+                      <article id="api-Todo-getToDoLists-0" data-group="User" data-name="getToDoLists" data-version="0">
+                        <div class="pull-left">
+                          <h1>getToDoLists</h1>
+                          <p>get a list of todo lists</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/todo/list</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Todo-getToDoLists-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Todo-getToDoLists-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Todo-getToDoLists-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Todo-getToDoLists-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Todo-getToDoLists-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Todo-getToDoLists-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Todo-getToDoLists-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Todo-getToDoLists-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Todo-getToDoLists-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Todo-getToDoLists-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Todo-getToDoLists-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Todo-getToDoLists-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Todo-getToDoLists-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+ -H "Accept: application/json"\
+ -H "Content-Type: application/json"\
+ "http://slime.home:8080/api/v1/todo/list"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Todo-getToDoLists-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.TodoApi;
+
+import java.io.File;
+import java.util.*;
+
+public class TodoApiExample {
+    public static void main(String[] args) {
+        
+        // Create an instance of the API class
+        TodoApi apiInstance = new TodoApi();
+        ToDoSearch toDoSearch = ; // ToDoSearch | 
+        
+        try {
+            array[toDoListGet] result = apiInstance.getToDoLists(toDoSearch);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TodoApi#getToDoLists");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Todo-getToDoLists-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.TodoApi;
+
+public class TodoApiExample {
+    public static void main(String[] args) {
+        TodoApi apiInstance = new TodoApi();
+        ToDoSearch toDoSearch = ; // ToDoSearch | 
+        
+        try {
+            array[toDoListGet] result = apiInstance.getToDoLists(toDoSearch);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TodoApi#getToDoLists");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Todo-getToDoLists-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Todo-getToDoLists-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+TodoApi *apiInstance = [[TodoApi alloc] init];
+ToDoSearch *toDoSearch = ; //  (optional)
+
+// get a list of todo lists
+[apiInstance getToDoListsWith:toDoSearch
+              completionHandler: ^(array[toDoListGet] output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-getToDoLists-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var MyHomeManagerApi = require('my_home_manager_api');
+
+// Create an instance of the API class
+var api = new MyHomeManagerApi.TodoApi()
+var opts = {
+  'toDoSearch':  // {ToDoSearch} 
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getToDoLists(opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Todo-getToDoLists-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Todo-getToDoLists-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class getToDoListsExample
+    {
+        public void main()
+        {
+            
+            // Create an instance of the API class
+            var apiInstance = new TodoApi();
+            var toDoSearch = new ToDoSearch(); // ToDoSearch |  (optional) 
+
+            try {
+                // get a list of todo lists
+                array[toDoListGet] result = apiInstance.getToDoLists(toDoSearch);
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling TodoApi.getToDoLists: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-getToDoLists-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\TodoApi();
+$toDoSearch = ; // ToDoSearch | 
+
+try {
+    $result = $api_instance->getToDoLists($toDoSearch);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TodoApi->getToDoLists: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-getToDoLists-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::TodoApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::TodoApi->new();
+my $toDoSearch = WWW::OPenAPIClient::Object::ToDoSearch->new(); # ToDoSearch | 
+
+eval { 
+    my $result = $api_instance->getToDoLists(toDoSearch => $toDoSearch);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling TodoApi->getToDoLists: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-getToDoLists-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.TodoApi()
+toDoSearch =  # ToDoSearch |  (optional)
+
+try: 
+    # get a list of todo lists
+    api_response = api_instance.get_to_do_lists(toDoSearch=toDoSearch)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling TodoApi->getToDoLists: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-getToDoLists-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate TodoApi;
+
+pub fn main() {
+    let toDoSearch = ; // ToDoSearch
+
+    let mut context = TodoApi::Context::default();
+    let result = client.getToDoLists(toDoSearch, &context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">toDoSearch </td>
+<td>
+<p class="marked"></p>
+<script>
+$(document).ready(function() {
+  var schemaWrapper = {
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/toDoSearch"
+      }
+    }
+  },
+  "required" : false
+};
+
+  var schema = findNode('schema',schemaWrapper).schema;
+  if (!schema) {
+    schema = schemaWrapper.schema;
+  }
+  if (schema.$ref != null) {
+    schema = defsParser.$refs.get(schema.$ref);
+  } else {
+    schemaWrapper.definitions = Object.assign({}, defs);
+    $RefParser.dereference(schemaWrapper).catch(function(err) {
+      console.log(err);
+    });
+  }
+
+  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+  var result = $('#d2e199_getToDoLists_toDoSearch');
+  result.empty();
+  result.append(view.render());
+});
+</script>
+<div id="d2e199_getToDoLists_toDoSearch"></div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-Todo-getToDoLists-title-200"></h3>
+                            <p id="examples-Todo-getToDoLists-description-200" class="marked"></p>
+                            <script>
+                              var responseTodo200_description = `retruns a list with all todo lists`;
+                              var responseTodo200_description_break = responseTodo200_description.indexOf('\n');
+                              if (responseTodo200_description_break == -1) {
+                                $("#examples-Todo-getToDoLists-title-200").text("Status: 200 - " + responseTodo200_description);
+                              } else {
+                                $("#examples-Todo-getToDoLists-title-200").text("Status: 200 - " + responseTodo200_description.substring(0, responseTodo200_description_break));
+                                $("#examples-Todo-getToDoLists-description-200").html(responseTodo200_description.substring(responseTodo200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Todo-getToDoLists-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Todo-getToDoLists-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Todo-getToDoLists-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Todo-getToDoLists-200-schema">
+                                  <div id="responses-Todo-getToDoLists-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "retruns a list with all todo lists",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/toDoListList"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Todo-getToDoLists-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Todo-getToDoLists-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Todo-getToDoLists-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Todo-updateToDoList">
+                      <article id="api-Todo-updateToDoList-0" data-group="User" data-name="updateToDoList" data-version="0">
+                        <div class="pull-left">
+                          <h1>updateToDoList</h1>
+                          <p>updates the Title of the Todo List</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/api/v1/todo/list/{listId}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Todo-updateToDoList-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Todo-updateToDoList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Todo-updateToDoList-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Todo-updateToDoList-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Todo-updateToDoList-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Todo-updateToDoList-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Todo-updateToDoList-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Todo-updateToDoList-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Todo-updateToDoList-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Todo-updateToDoList-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Todo-updateToDoList-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Todo-updateToDoList-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Todo-updateToDoList-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
+ -H "Accept: application/json"\
+ -H "Content-Type: application/json"\
+ "http://slime.home:8080/api/v1/todo/list/{listId}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Todo-updateToDoList-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.TodoApi;
+
+import java.io.File;
+import java.util.*;
+
+public class TodoApiExample {
+    public static void main(String[] args) {
+        
+        // Create an instance of the API class
+        TodoApi apiInstance = new TodoApi();
+        String listId = listId_example; // String | 
+        ToDoListWrite toDoListWrite = ; // ToDoListWrite | 
+        
+        try {
+            toDoListGet result = apiInstance.updateToDoList(listId, toDoListWrite);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TodoApi#updateToDoList");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Todo-updateToDoList-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.TodoApi;
+
+public class TodoApiExample {
+    public static void main(String[] args) {
+        TodoApi apiInstance = new TodoApi();
+        String listId = listId_example; // String | 
+        ToDoListWrite toDoListWrite = ; // ToDoListWrite | 
+        
+        try {
+            toDoListGet result = apiInstance.updateToDoList(listId, toDoListWrite);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TodoApi#updateToDoList");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Todo-updateToDoList-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Todo-updateToDoList-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+TodoApi *apiInstance = [[TodoApi alloc] init];
+String *listId = listId_example; //  (default to null)
+ToDoListWrite *toDoListWrite = ; //  (optional)
+
+// updates the Title of the Todo List
+[apiInstance updateToDoListWith:listId
+    toDoListWrite:toDoListWrite
+              completionHandler: ^(toDoListGet output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-updateToDoList-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var MyHomeManagerApi = require('my_home_manager_api');
+
+// Create an instance of the API class
+var api = new MyHomeManagerApi.TodoApi()
+var listId = listId_example; // {String} 
+var opts = {
+  'toDoListWrite':  // {ToDoListWrite} 
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.updateToDoList(listId, opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Todo-updateToDoList-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Todo-updateToDoList-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class updateToDoListExample
+    {
+        public void main()
+        {
+            
+            // Create an instance of the API class
+            var apiInstance = new TodoApi();
+            var listId = listId_example;  // String |  (default to null)
+            var toDoListWrite = new ToDoListWrite(); // ToDoListWrite |  (optional) 
+
+            try {
+                // updates the Title of the Todo List
+                toDoListGet result = apiInstance.updateToDoList(listId, toDoListWrite);
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling TodoApi.updateToDoList: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-updateToDoList-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\TodoApi();
+$listId = listId_example; // String | 
+$toDoListWrite = ; // ToDoListWrite | 
+
+try {
+    $result = $api_instance->updateToDoList($listId, $toDoListWrite);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TodoApi->updateToDoList: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-updateToDoList-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::TodoApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::TodoApi->new();
+my $listId = listId_example; # String | 
+my $toDoListWrite = WWW::OPenAPIClient::Object::ToDoListWrite->new(); # ToDoListWrite | 
+
+eval { 
+    my $result = $api_instance->updateToDoList(listId => $listId, toDoListWrite => $toDoListWrite);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling TodoApi->updateToDoList: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-updateToDoList-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.TodoApi()
+listId = listId_example # String |  (default to null)
+toDoListWrite =  # ToDoListWrite |  (optional)
+
+try: 
+    # updates the Title of the Todo List
+    api_response = api_instance.update_to_do_list(listId, toDoListWrite=toDoListWrite)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling TodoApi->updateToDoList: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-updateToDoList-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate TodoApi;
+
+pub fn main() {
+    let listId = listId_example; // String
+    let toDoListWrite = ; // ToDoListWrite
+
+    let mut context = TodoApi::Context::default();
+    let result = client.updateToDoList(listId, toDoListWrite, &context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">listId*</td>
+<td>
+
+
+    <div id="d2e199_updateToDoList_listId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">toDoListWrite </td>
+<td>
+<p class="marked"></p>
+<script>
+$(document).ready(function() {
+  var schemaWrapper = {
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/toDoListWrite"
+      }
+    }
+  }
+};
+
+  var schema = findNode('schema',schemaWrapper).schema;
+  if (!schema) {
+    schema = schemaWrapper.schema;
+  }
+  if (schema.$ref != null) {
+    schema = defsParser.$refs.get(schema.$ref);
+  } else {
+    schemaWrapper.definitions = Object.assign({}, defs);
+    $RefParser.dereference(schemaWrapper).catch(function(err) {
+      console.log(err);
+    });
+  }
+
+  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+  var result = $('#d2e199_updateToDoList_toDoListWrite');
+  result.empty();
+  result.append(view.render());
+});
+</script>
+<div id="d2e199_updateToDoList_toDoListWrite"></div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-Todo-updateToDoList-title-200"></h3>
+                            <p id="examples-Todo-updateToDoList-description-200" class="marked"></p>
+                            <script>
+                              var responseTodo200_description = `gets the successful created list back`;
+                              var responseTodo200_description_break = responseTodo200_description.indexOf('\n');
+                              if (responseTodo200_description_break == -1) {
+                                $("#examples-Todo-updateToDoList-title-200").text("Status: 200 - " + responseTodo200_description);
+                              } else {
+                                $("#examples-Todo-updateToDoList-title-200").text("Status: 200 - " + responseTodo200_description.substring(0, responseTodo200_description_break));
+                                $("#examples-Todo-updateToDoList-description-200").html(responseTodo200_description.substring(responseTodo200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Todo-updateToDoList-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Todo-updateToDoList-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Todo-updateToDoList-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Todo-updateToDoList-200-schema">
+                                  <div id="responses-Todo-updateToDoList-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "gets the successful created list back",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/toDoListGet"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Todo-updateToDoList-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Todo-updateToDoList-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Todo-updateToDoList-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                            <h3 id="examples-Todo-updateToDoList-title-404"></h3>
+                            <p id="examples-Todo-updateToDoList-description-404" class="marked"></p>
+                            <script>
+                              var responseTodo404_description = `not found`;
+                              var responseTodo404_description_break = responseTodo404_description.indexOf('\n');
+                              if (responseTodo404_description_break == -1) {
+                                $("#examples-Todo-updateToDoList-title-404").text("Status: 404 - " + responseTodo404_description);
+                              } else {
+                                $("#examples-Todo-updateToDoList-title-404").text("Status: 404 - " + responseTodo404_description.substring(0, responseTodo404_description_break));
+                                $("#examples-Todo-updateToDoList-description-404").html(responseTodo404_description.substring(responseTodo404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Todo-updateToDoList-404" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Todo-updateToDoList-404-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Todo-updateToDoList-404-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Todo-updateToDoList-404-schema">
+                                  <div id="responses-Todo-updateToDoList-schema-404" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "not found",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/notFound"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Todo-updateToDoList-404-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Todo-updateToDoList-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Todo-updateToDoList-404-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Todo-updateTodoListItem">
+                      <article id="api-Todo-updateTodoListItem-0" data-group="User" data-name="updateTodoListItem" data-version="0">
+                        <div class="pull-left">
+                          <h1>updateTodoListItem</h1>
+                          <p>update the list item</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/api/v1/todo/list/{listId}/item/{itemId}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Todo-updateTodoListItem-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Todo-updateTodoListItem-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Todo-updateTodoListItem-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Todo-updateTodoListItem-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Todo-updateTodoListItem-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Todo-updateTodoListItem-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Todo-updateTodoListItem-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Todo-updateTodoListItem-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Todo-updateTodoListItem-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Todo-updateTodoListItem-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Todo-updateTodoListItem-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Todo-updateTodoListItem-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Todo-updateTodoListItem-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
+ -H "Accept: application/json"\
+ -H "Content-Type: application/json"\
+ "http://slime.home:8080/api/v1/todo/list/{listId}/item/{itemId}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Todo-updateTodoListItem-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.TodoApi;
+
+import java.io.File;
+import java.util.*;
+
+public class TodoApiExample {
+    public static void main(String[] args) {
+        
+        // Create an instance of the API class
+        TodoApi apiInstance = new TodoApi();
+        String listId = listId_example; // String | 
+        String itemId = itemId_example; // String | 
+        ToDoListItemWrite toDoListItemWrite = ; // ToDoListItemWrite | 
+        
+        try {
+            toDoListItemGet result = apiInstance.updateTodoListItem(listId, itemId, toDoListItemWrite);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TodoApi#updateTodoListItem");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Todo-updateTodoListItem-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.TodoApi;
+
+public class TodoApiExample {
+    public static void main(String[] args) {
+        TodoApi apiInstance = new TodoApi();
+        String listId = listId_example; // String | 
+        String itemId = itemId_example; // String | 
+        ToDoListItemWrite toDoListItemWrite = ; // ToDoListItemWrite | 
+        
+        try {
+            toDoListItemGet result = apiInstance.updateTodoListItem(listId, itemId, toDoListItemWrite);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TodoApi#updateTodoListItem");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Todo-updateTodoListItem-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Todo-updateTodoListItem-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+TodoApi *apiInstance = [[TodoApi alloc] init];
+String *listId = listId_example; //  (default to null)
+String *itemId = itemId_example; //  (default to null)
+ToDoListItemWrite *toDoListItemWrite = ; //  (optional)
+
+// update the list item
+[apiInstance updateTodoListItemWith:listId
+    itemId:itemId
+    toDoListItemWrite:toDoListItemWrite
+              completionHandler: ^(toDoListItemGet output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-updateTodoListItem-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var MyHomeManagerApi = require('my_home_manager_api');
+
+// Create an instance of the API class
+var api = new MyHomeManagerApi.TodoApi()
+var listId = listId_example; // {String} 
+var itemId = itemId_example; // {String} 
+var opts = {
+  'toDoListItemWrite':  // {ToDoListItemWrite} 
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.updateTodoListItem(listId, itemId, opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Todo-updateTodoListItem-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Todo-updateTodoListItem-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class updateTodoListItemExample
+    {
+        public void main()
+        {
+            
+            // Create an instance of the API class
+            var apiInstance = new TodoApi();
+            var listId = listId_example;  // String |  (default to null)
+            var itemId = itemId_example;  // String |  (default to null)
+            var toDoListItemWrite = new ToDoListItemWrite(); // ToDoListItemWrite |  (optional) 
+
+            try {
+                // update the list item
+                toDoListItemGet result = apiInstance.updateTodoListItem(listId, itemId, toDoListItemWrite);
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling TodoApi.updateTodoListItem: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-updateTodoListItem-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\TodoApi();
+$listId = listId_example; // String | 
+$itemId = itemId_example; // String | 
+$toDoListItemWrite = ; // ToDoListItemWrite | 
+
+try {
+    $result = $api_instance->updateTodoListItem($listId, $itemId, $toDoListItemWrite);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TodoApi->updateTodoListItem: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-updateTodoListItem-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::TodoApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::TodoApi->new();
+my $listId = listId_example; # String | 
+my $itemId = itemId_example; # String | 
+my $toDoListItemWrite = WWW::OPenAPIClient::Object::ToDoListItemWrite->new(); # ToDoListItemWrite | 
+
+eval { 
+    my $result = $api_instance->updateTodoListItem(listId => $listId, itemId => $itemId, toDoListItemWrite => $toDoListItemWrite);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling TodoApi->updateTodoListItem: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-updateTodoListItem-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.TodoApi()
+listId = listId_example # String |  (default to null)
+itemId = itemId_example # String |  (default to null)
+toDoListItemWrite =  # ToDoListItemWrite |  (optional)
+
+try: 
+    # update the list item
+    api_response = api_instance.update_todo_list_item(listId, itemId, toDoListItemWrite=toDoListItemWrite)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling TodoApi->updateTodoListItem: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Todo-updateTodoListItem-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate TodoApi;
+
+pub fn main() {
+    let listId = listId_example; // String
+    let itemId = itemId_example; // String
+    let toDoListItemWrite = ; // ToDoListItemWrite
+
+    let mut context = TodoApi::Context::default();
+    let result = client.updateTodoListItem(listId, itemId, toDoListItemWrite, &context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">listId*</td>
+<td>
+
+
+    <div id="d2e199_updateTodoListItem_listId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                  <tr><td style="width:150px;">itemId*</td>
+<td>
+
+
+    <div id="d2e199_updateTodoListItem_itemId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">toDoListItemWrite </td>
+<td>
+<p class="marked">properties of the new list item</p>
+<script>
+$(document).ready(function() {
+  var schemaWrapper = {
+  "description" : "properties of the new list item",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/toDoListItemWrite"
+      }
+    }
+  }
+};
+
+  var schema = findNode('schema',schemaWrapper).schema;
+  if (!schema) {
+    schema = schemaWrapper.schema;
+  }
+  if (schema.$ref != null) {
+    schema = defsParser.$refs.get(schema.$ref);
+  } else {
+    schemaWrapper.definitions = Object.assign({}, defs);
+    $RefParser.dereference(schemaWrapper).catch(function(err) {
+      console.log(err);
+    });
+  }
+
+  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+  var result = $('#d2e199_updateTodoListItem_toDoListItemWrite');
+  result.empty();
+  result.append(view.render());
+});
+</script>
+<div id="d2e199_updateTodoListItem_toDoListItemWrite"></div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-Todo-updateTodoListItem-title-200"></h3>
+                            <p id="examples-Todo-updateTodoListItem-description-200" class="marked"></p>
+                            <script>
+                              var responseTodo200_description = `create a new list item`;
+                              var responseTodo200_description_break = responseTodo200_description.indexOf('\n');
+                              if (responseTodo200_description_break == -1) {
+                                $("#examples-Todo-updateTodoListItem-title-200").text("Status: 200 - " + responseTodo200_description);
+                              } else {
+                                $("#examples-Todo-updateTodoListItem-title-200").text("Status: 200 - " + responseTodo200_description.substring(0, responseTodo200_description_break));
+                                $("#examples-Todo-updateTodoListItem-description-200").html(responseTodo200_description.substring(responseTodo200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Todo-updateTodoListItem-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Todo-updateTodoListItem-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Todo-updateTodoListItem-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Todo-updateTodoListItem-200-schema">
+                                  <div id="responses-Todo-updateTodoListItem-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "create a new list item",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/toDoListItemGet"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Todo-updateTodoListItem-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Todo-updateTodoListItem-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Todo-updateTodoListItem-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                            <h3 id="examples-Todo-updateTodoListItem-title-404"></h3>
+                            <p id="examples-Todo-updateTodoListItem-description-404" class="marked"></p>
+                            <script>
+                              var responseTodo404_description = `not found`;
+                              var responseTodo404_description_break = responseTodo404_description.indexOf('\n');
+                              if (responseTodo404_description_break == -1) {
+                                $("#examples-Todo-updateTodoListItem-title-404").text("Status: 404 - " + responseTodo404_description);
+                              } else {
+                                $("#examples-Todo-updateTodoListItem-title-404").text("Status: 404 - " + responseTodo404_description.substring(0, responseTodo404_description_break));
+                                $("#examples-Todo-updateTodoListItem-description-404").html(responseTodo404_description.substring(responseTodo404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Todo-updateTodoListItem-404" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Todo-updateTodoListItem-404-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Todo-updateTodoListItem-404-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Todo-updateTodoListItem-404-schema">
+                                  <div id="responses-Todo-updateTodoListItem-schema-404" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "not found",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/notFound"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Todo-updateTodoListItem-404-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Todo-updateTodoListItem-schema-404');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Todo-updateTodoListItem-404-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
                         </article>

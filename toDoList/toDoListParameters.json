@@ -1,0 +1,22 @@
+{
+    "components":{
+        "parameters":{
+            "toDoList":{
+                "name": "listId",
+                "in": "path",
+                "required": true,
+                "schema":{
+                    "type": "string"
+                }
+            },
+            "toDoListItem":{
+                "name": "itemId",
+                "in":"path",
+                "required":true,
+                "schema":{
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

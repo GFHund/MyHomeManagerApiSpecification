@@ -1,0 +1,82 @@
+{
+    "components":{
+        "schemas":{
+            "toDoSearch":{
+                "type": "object",
+                "properties": {
+                    "searchword":{
+                        "type": "string"
+                    }
+                }
+            },
+            "toDoListGet":{
+                "type": "object",
+                "properties": {
+                    "id":{
+                        "type":"string"
+                    },
+                    "title":{
+                        "type": "string"
+                    },
+                    "active":{
+                        "type": "boolean"
+                    }
+                }
+            },
+            "toDoListList":{
+                "type":"array",
+                "items":{
+                    "$ref":"#/components/schemas/toDoListGet"
+                }
+            },
+            "toDoListWrite":{
+                "type": "object",
+                "properties": {
+                    "title":{
+                        "type": "string"
+                    },
+                    "active":{
+                        "type": "boolean"
+                    }
+                }
+            },
+            "toDoListItemWrite":{
+                "type": "object",
+                "properties": {
+                    "text":{
+                        "type": "string"
+                    },
+                    "active":{
+                        "type": "boolean"
+                    },
+                    "completedUntil":{
+                        "type": "integer"
+                    },
+                    "warningFrom":{
+                        "type": "integer"
+                    }
+                }
+            },
+            "toDoListItemGet":{
+                "type": "object",
+                "properties": {
+                    "id":{
+                        "type": "string"
+                    },
+                    "text":{
+                        "type": "string"
+                    },
+                    "active":{
+                        "type": "boolean"
+                    },
+                    "completedUntil":{
+                        "type": "integer"
+                    },
+                    "warningFrom":{
+                        "type": "integer"
+                    }
+                }
+            }
+        }
+    }
+}

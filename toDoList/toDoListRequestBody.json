@@ -1,0 +1,35 @@
+{
+    "components":{
+        "requestBodies":{
+            "toDoSearch":{
+                "required": false,
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":"toDoListSchema.json#/components/schemas/toDoSearch"
+                        }
+                    }
+                }
+            },
+            "toDoList":{
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":"toDoListSchema.json#/components/schemas/toDoListWrite"
+                        }
+                    }
+                }
+            },
+            "toDoListItem":{
+                "description": "properties of the new list item",
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":"toDoListSchema.json#/components/schemas/toDoListItemWrite"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

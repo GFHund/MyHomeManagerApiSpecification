@@ -1,0 +1,202 @@
+{
+    "components":{
+        "paths":{
+            "toDoListList":{
+                "get":{
+                    "summary": "get a list of todo lists",
+                    "operationId": "getToDoLists",
+                    "tags": [
+                        "todo"
+                    ],
+                    "requestBody":{
+                        "$ref":"toDoList/toDoListRequestBody.json#/components/requestBodies/toDoSearch"
+                    },
+                    "responses": {
+                        "200":{
+                            "$ref":"toDoList/toDoListResponses.json#/components/responses/toDoListList"
+                        }
+                    }
+                },
+                "post":{
+                    "summary":"create a new list",
+                    "operationId":"createToDoList",
+                    "tags": [
+                        "todo"
+                    ],
+                    "requestBody":{
+                        "$ref":"toDoList/toDoListRequestBody.json#/components/requestBodies/toDoList"
+                    },
+                    "responses": {
+                        "201":{
+                            "$ref":"toDoList/toDoListResponses.json#/components/responses/toDoList"
+                        }
+                    }
+                }
+            },
+            "toDoListDetail":{
+                "get":{
+                    "summary": "gets the toDo list specified in the listId property",
+                    "operationId": "getToDoList",
+                    "tags": [
+                        "todo"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"toDoList/toDoListParameters.json#/components/parameters/toDoList"
+                        }
+                    ],
+                    "responses": {
+                        "200":{
+                            "$ref":"toDoList/toDoListResponses.json#/components/responses/toDoList"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                },
+                "put":{
+                    "summary":"updates the Title of the Todo List",
+                    "operationId": "updateToDoList",
+                    "tags": [
+                        "todo"
+                    ],
+                    "requestBody":{
+                        "$ref":"toDoList/toDoListRequestBody.json#/components/requestBodies/toDoList"
+                    },
+                    "parameters": [
+                        {
+                            "$ref":"toDoList/toDoListParameters.json#/components/parameters/toDoList"
+                        }
+                    ],
+                    "responses": {
+                        "200":{
+                            "$ref":"toDoList/toDoListResponses.json#/components/responses/toDoList"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                },
+                "delete":{
+                    "summary":"delete list",
+                    "operationId": "deleteToDoList",
+                    "tags": [
+                        "todo"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"toDoList/toDoListParameters.json#/components/parameters/toDoList"
+                        }
+                    ],
+                    "responses": {
+                        "200":{
+                            "$ref":"commonResponses.json#/components/responses/default"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                }
+            },
+            "toDoListItemList":{
+                "post":{
+                    "summary": "insert a new todo item into the list",
+                    "operationId": "createToDoListItem",
+                    "tags": [
+                        "todo"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"toDoList/toDoListParameters.json#/components/parameters/toDoList"
+                        }
+                    ],
+                    "requestBody":{
+                        "$ref":"toDoList/toDoListRequestBody.json#/components/requestBodies/toDoListItem"
+                    },
+                    "responses": {
+                        "201":{
+                            "$ref":"toDoList/toDoListResponses.json#/components/responses/toListItem"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                }
+            },
+            "toDoListItemDetail":{
+                "get":{
+                    "summary": "get the list item",
+                    "operationId": "getToDoListItem",
+                    "tags": [
+                        "todo"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"toDoList/toDoListParameters.json#/components/parameters/toDoList"
+                        },
+                        {
+                            "$ref":"toDoList/toDoListParameters.json#/components/parameters/toDoListItem"
+                        }
+                    ],
+                    "responses": {
+                        "200":{
+                            "$ref":"toDoList/toDoListResponses.json#/components/responses/toListItem"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                },
+                "put":{
+                    "summary": "update the list item",
+                    "operationId": "updateTodoListItem",
+                    "tags": [
+                        "todo"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"toDoList/toDoListParameters.json#/components/parameters/toDoList"
+                        },
+                        {
+                            "$ref":"toDoList/toDoListParameters.json#/components/parameters/toDoListItem"
+                        }
+                    ],
+                    "requestBody":{
+                        "$ref":"toDoList/toDoListRequestBody.json#/components/requestBodies/toDoListItem"
+                    },
+                    "responses": {
+                        "200":{
+                            "$ref":"toDoList/toDoListResponses.json#/components/responses/toListItem"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                },
+                "delete":{
+                    "summary": "delete the list item",
+                    "operationId": "deleteTodoListItem",
+                    "tags": [
+                        "todo"
+                    ],
+                    "parameters": [
+                        {
+                            "$ref":"toDoList/toDoListParameters.json#/components/parameters/toDoList"
+                        },
+                        {
+                            "$ref":"toDoList/toDoListParameters.json#/components/parameters/toDoListItem"
+                        }
+                    ],
+                    "responses": {
+                        "200":{
+                            "$ref":"commonResponses.json#/components/responses/default"
+                        },
+                        "404":{
+                            "$ref":"commonResponses.json#/components/responses/notFound"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

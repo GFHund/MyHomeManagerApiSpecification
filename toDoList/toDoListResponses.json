@@ -1,0 +1,36 @@
+{
+    "components":{
+        "responses":{
+            "toDoListList":{
+                "description": "retruns a list with all todo lists",
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":"toDoListSchema.json#/components/schemas/toDoListList"
+                        }
+                    }
+                }
+            },
+            "toDoList":{
+                "description": "gets the successful created list back",
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref": "toDoListSchema.json#/components/schemas/toDoListGet"
+                        }
+                    }
+                }
+            },
+            "toListItem":{
+                "description": "create a new list item",
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":"toDoListSchema.json#/components/schemas/toDoListItemGet"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
