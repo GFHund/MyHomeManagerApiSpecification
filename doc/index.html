@@ -23918,6 +23918,7 @@ $(document).ready(function() {
                           <div class="tab-pane active" id="examples-Wiki-updateWikiPage-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
  -H "Accept: application/json"\
+ -H "Content-Type: application/json"\
  "http://slime.home:8080/api/v1/wiki/page/{pageId}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Wiki-updateWikiPage-0-java">
@@ -23935,9 +23936,10 @@ public class WikiApiExample {
         // Create an instance of the API class
         WikiApi apiInstance = new WikiApi();
         String pageId = pageId_example; // String | wiki page id
+        WikiPageWrite wikiPageWrite = ; // WikiPageWrite | 
         
         try {
-            WikiPageGet result = apiInstance.updateWikiPage(pageId);
+            WikiPageGet result = apiInstance.updateWikiPage(pageId, wikiPageWrite);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling WikiApi#updateWikiPage");
@@ -23955,9 +23957,10 @@ public class WikiApiExample {
     public static void main(String[] args) {
         WikiApi apiInstance = new WikiApi();
         String pageId = pageId_example; // String | wiki page id
+        WikiPageWrite wikiPageWrite = ; // WikiPageWrite | 
         
         try {
-            WikiPageGet result = apiInstance.updateWikiPage(pageId);
+            WikiPageGet result = apiInstance.updateWikiPage(pageId, wikiPageWrite);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling WikiApi#updateWikiPage");
@@ -23976,8 +23979,10 @@ public class WikiApiExample {
 // Create an instance of the API class
 WikiApi *apiInstance = [[WikiApi alloc] init];
 String *pageId = pageId_example; // wiki page id (default to null)
+WikiPageWrite *wikiPageWrite = ; // 
 
 [apiInstance updateWikiPageWith:pageId
+    wikiPageWrite:wikiPageWrite
               completionHandler: ^(WikiPageGet output, NSError* error) {
     if (output) {
         NSLog(@"%@", output);
@@ -23995,6 +24000,7 @@ String *pageId = pageId_example; // wiki page id (default to null)
 // Create an instance of the API class
 var api = new MyHomeManagerApi.WikiApi()
 var pageId = pageId_example; // {String} wiki page id
+var wikiPageWrite = ; // {WikiPageWrite} 
 
 var callback = function(error, data, response) {
   if (error) {
@@ -24003,7 +24009,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.updateWikiPage(pageId, callback);
+api.updateWikiPage(pageId, wikiPageWrite, callback);
 </code></pre>
                             </div>
 
@@ -24027,9 +24033,10 @@ namespace Example
             // Create an instance of the API class
             var apiInstance = new WikiApi();
             var pageId = pageId_example;  // String | wiki page id (default to null)
+            var wikiPageWrite = new WikiPageWrite(); // WikiPageWrite | 
 
             try {
-                WikiPageGet result = apiInstance.updateWikiPage(pageId);
+                WikiPageGet result = apiInstance.updateWikiPage(pageId, wikiPageWrite);
                 Debug.WriteLine(result);
             } catch (Exception e) {
                 Debug.Print("Exception when calling WikiApi.updateWikiPage: " + e.Message );
@@ -24047,9 +24054,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Create an instance of the API class
 $api_instance = new OpenAPITools\Client\Api\WikiApi();
 $pageId = pageId_example; // String | wiki page id
+$wikiPageWrite = ; // WikiPageWrite | 
 
 try {
-    $result = $api_instance->updateWikiPage($pageId);
+    $result = $api_instance->updateWikiPage($pageId, $wikiPageWrite);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WikiApi->updateWikiPage: ', $e->getMessage(), PHP_EOL;
@@ -24065,9 +24073,10 @@ use WWW::OPenAPIClient::WikiApi;
 # Create an instance of the API class
 my $api_instance = WWW::OPenAPIClient::WikiApi->new();
 my $pageId = pageId_example; # String | wiki page id
+my $wikiPageWrite = WWW::OPenAPIClient::Object::WikiPageWrite->new(); # WikiPageWrite | 
 
 eval { 
-    my $result = $api_instance->updateWikiPage(pageId => $pageId);
+    my $result = $api_instance->updateWikiPage(pageId => $pageId, wikiPageWrite => $wikiPageWrite);
     print Dumper($result);
 };
 if ($@) {
@@ -24085,9 +24094,10 @@ from pprint import pprint
 # Create an instance of the API class
 api_instance = openapi_client.WikiApi()
 pageId = pageId_example # String | wiki page id (default to null)
+wikiPageWrite =  # WikiPageWrite | 
 
 try: 
-    api_response = api_instance.update_wiki_page(pageId)
+    api_response = api_instance.update_wiki_page(pageId, wikiPageWrite)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling WikiApi->updateWikiPage: %s\n" % e)</code></pre>
@@ -24098,9 +24108,10 @@ except ApiException as e:
 
 pub fn main() {
     let pageId = pageId_example; // String
+    let wikiPageWrite = ; // WikiPageWrite
 
     let mut context = WikiApi::Context::default();
-    let result = client.updateWikiPage(pageId, &context).wait();
+    let result = client.updateWikiPage(pageId, wikiPageWrite, &context).wait();
 
     println!("{:?}", result);
 }
@@ -24147,6 +24158,52 @@ wiki page id
                             </table>
 
 
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">wikiPageWrite <span style="color:red;">*</span></td>
+<td>
+<p class="marked"></p>
+<script>
+$(document).ready(function() {
+  var schemaWrapper = {
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/WikiPageWrite"
+      }
+    }
+  },
+  "required" : true
+};
+
+  var schema = findNode('schema',schemaWrapper).schema;
+  if (!schema) {
+    schema = schemaWrapper.schema;
+  }
+  if (schema.$ref != null) {
+    schema = defsParser.$refs.get(schema.$ref);
+  } else {
+    schemaWrapper.definitions = Object.assign({}, defs);
+    $RefParser.dereference(schemaWrapper).catch(function(err) {
+      console.log(err);
+    });
+  }
+
+  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+  var result = $('#d2e199_updateWikiPage_wikiPageWrite');
+  result.empty();
+  result.append(view.render());
+});
+</script>
+<div id="d2e199_updateWikiPage_wikiPageWrite"></div>
+</td>
+</tr>
+
+                            </table>
 
 
 

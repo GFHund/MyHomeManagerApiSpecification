@@ -65,6 +65,9 @@
                             "$ref":"wiki/wikiParameters.json#/components/parameters/page"
                         }
                     ],
+                    "requestBody":{
+                        "$ref":"wiki/wikiRequestBody.json#/components/requestBodies/wiki"
+                    },
                     "responses": {
                         "200":{
                             "$ref":"wiki/wikiResponses.json#/components/responses/wiki"
