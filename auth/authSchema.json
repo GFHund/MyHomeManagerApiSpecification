@@ -18,14 +18,22 @@
 					"success"
 				],
 				"properties":{
-				"success":{
-					"type":"boolean"
-				},
-				"token":{
-					"type":"string"
+                    "success":{
+                        "type":"boolean"
+                    },
+				    "token":{
+					    "type":"string"
 					}
 				}
 			},
+            "authVerificationResult":{
+                "type":"object",
+                "properties":{
+                    "verificationResult":{
+                        "type":"boolean"
+                    }
+                }
+            },
             "userFilter":{
                 "type":"object",
                 "properties": {
