@@ -37,6 +37,25 @@
                         }
                     }
                 }
+            },
+            "MagazinesIndexParam":{
+                "type":"object",
+                "properties":{
+                    "offset":{
+                        "type":"integer"
+                    },
+                    "limit":{
+                        "type":"integer"
+                    }
+                }
+            },
+            "MagazinesIndexRet":{
+                "type":"object",
+                "properties":{
+                    "read":{
+                        "type":"integer"
+                    }
+                }
             }
         }
     }

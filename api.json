@@ -80,6 +80,9 @@
         "/api/v1/magazines/{magazineId}":{
             "$ref":"magazine.json#/components/paths/magazineDetail"
         },
+        "/api/v1/magazines/index":{
+            "$ref":"magazine.json#/components/paths/magazineIndex"
+        },
 
         "/api/v1/wiki/page":{
             "$ref":"wiki.json#/components/paths/wikiPages"

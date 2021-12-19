@@ -858,6 +858,14 @@ ul.nav-tabs {
     }
   }
 };
+    defs["authVerificationResult"] = {
+  "type" : "object",
+  "properties" : {
+    "verificationResult" : {
+      "type" : "boolean"
+    }
+  }
+};
     defs["defaultReturn"] = {
   "type" : "object",
   "properties" : {
@@ -888,6 +896,25 @@ ul.nav-tabs {
     },
     "url" : {
       "type" : "string"
+    }
+  }
+};
+    defs["MagazinesIndexParam"] = {
+  "type" : "object",
+  "properties" : {
+    "offset" : {
+      "type" : "integer"
+    },
+    "limit" : {
+      "type" : "integer"
+    }
+  }
+};
+    defs["MagazinesIndexRet"] = {
+  "type" : "object",
+  "properties" : {
+    "read" : {
+      "type" : "integer"
     }
   }
 };
@@ -1261,6 +1288,9 @@ ul.nav-tabs {
                     <li data-group="Auth" data-name="loginUser" class="">
                       <a href="#api-Auth-loginUser">loginUser</a>
                     </li>
+                    <li data-group="Auth" data-name="verifyToken" class="">
+                      <a href="#api-Auth-verifyToken">verifyToken</a>
+                    </li>
                   <li class="nav-header" data-group="Incredient"><a href="#api-Incredient">API Methods - Incredient</a></li>
                     <li data-group="Incredient" data-name="getIncredientRecipes" class="">
                       <a href="#api-Incredient-getIncredientRecipes">getIncredientRecipes</a>
@@ -1268,6 +1298,9 @@ ul.nav-tabs {
                   <li class="nav-header" data-group="Magazines"><a href="#api-Magazines">API Methods - Magazines</a></li>
                     <li data-group="Magazines" data-name="getMagazineList" class="">
                       <a href="#api-Magazines-getMagazineList">getMagazineList</a>
+                    </li>
+                    <li data-group="Magazines" data-name="indexMagazineData" class="">
+                      <a href="#api-Magazines-indexMagazineData">indexMagazineData</a>
                     </li>
                     <li data-group="Magazines" data-name="updateMagazineData" class="">
                       <a href="#api-Magazines-updateMagazineData">updateMagazineData</a>
@@ -1811,6 +1844,343 @@ $(document).ready(function() {
                                     </script>
                                   </div>
                                   <input id='responses-Auth-loginUser-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Auth-verifyToken">
+                      <article id="api-Auth-verifyToken-0" data-group="User" data-name="verifyToken" data-version="0">
+                        <div class="pull-left">
+                          <h1>verifyToken</h1>
+                          <p>verify token</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/auth/:token/validate</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Auth-verifyToken-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Auth-verifyToken-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Auth-verifyToken-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Auth-verifyToken-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Auth-verifyToken-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Auth-verifyToken-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Auth-verifyToken-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Auth-verifyToken-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Auth-verifyToken-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Auth-verifyToken-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Auth-verifyToken-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Auth-verifyToken-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Auth-verifyToken-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+ -H "Accept: application/json"\
+ "http://slime.home:8080/api/v1/auth/:token/validate"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Auth-verifyToken-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.AuthApi;
+
+import java.io.File;
+import java.util.*;
+
+public class AuthApiExample {
+    public static void main(String[] args) {
+        
+        // Create an instance of the API class
+        AuthApi apiInstance = new AuthApi();
+        String token = token_example; // String | 
+        
+        try {
+            authVerificationResult result = apiInstance.verifyToken(token);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AuthApi#verifyToken");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Auth-verifyToken-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.AuthApi;
+
+public class AuthApiExample {
+    public static void main(String[] args) {
+        AuthApi apiInstance = new AuthApi();
+        String token = token_example; // String | 
+        
+        try {
+            authVerificationResult result = apiInstance.verifyToken(token);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AuthApi#verifyToken");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Auth-verifyToken-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Auth-verifyToken-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+AuthApi *apiInstance = [[AuthApi alloc] init];
+String *token = token_example; //  (default to null)
+
+// verify token
+[apiInstance verifyTokenWith:token
+              completionHandler: ^(authVerificationResult output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Auth-verifyToken-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var MyHomeManagerApi = require('my_home_manager_api');
+
+// Create an instance of the API class
+var api = new MyHomeManagerApi.AuthApi()
+var token = token_example; // {String} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.verifyToken(token, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Auth-verifyToken-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Auth-verifyToken-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class verifyTokenExample
+    {
+        public void main()
+        {
+            
+            // Create an instance of the API class
+            var apiInstance = new AuthApi();
+            var token = token_example;  // String |  (default to null)
+
+            try {
+                // verify token
+                authVerificationResult result = apiInstance.verifyToken(token);
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling AuthApi.verifyToken: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Auth-verifyToken-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\AuthApi();
+$token = token_example; // String | 
+
+try {
+    $result = $api_instance->verifyToken($token);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AuthApi->verifyToken: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Auth-verifyToken-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::AuthApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::AuthApi->new();
+my $token = token_example; # String | 
+
+eval { 
+    my $result = $api_instance->verifyToken(token => $token);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling AuthApi->verifyToken: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Auth-verifyToken-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.AuthApi()
+token = token_example # String |  (default to null)
+
+try: 
+    # verify token
+    api_response = api_instance.verify_token(token)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AuthApi->verifyToken: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Auth-verifyToken-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate AuthApi;
+
+pub fn main() {
+    let token = token_example; // String
+
+    let mut context = AuthApi::Context::default();
+    let result = client.verifyToken(token, &context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">token*</td>
+<td>
+
+
+    <div id="d2e199_verifyToken_token">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-Auth-verifyToken-title-200"></h3>
+                            <p id="examples-Auth-verifyToken-description-200" class="marked"></p>
+                            <script>
+                              var responseAuth200_description = `Response of the verification of the token`;
+                              var responseAuth200_description_break = responseAuth200_description.indexOf('\n');
+                              if (responseAuth200_description_break == -1) {
+                                $("#examples-Auth-verifyToken-title-200").text("Status: 200 - " + responseAuth200_description);
+                              } else {
+                                $("#examples-Auth-verifyToken-title-200").text("Status: 200 - " + responseAuth200_description.substring(0, responseAuth200_description_break));
+                                $("#examples-Auth-verifyToken-description-200").html(responseAuth200_description.substring(responseAuth200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Auth-verifyToken-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Auth-verifyToken-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Auth-verifyToken-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Auth-verifyToken-200-schema">
+                                  <div id="responses-Auth-verifyToken-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Response of the verification of the token",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/authVerificationResult"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Auth-verifyToken-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Auth-verifyToken-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Auth-verifyToken-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
                         </article>
@@ -2454,6 +2824,363 @@ pub fn main() {
                                     </script>
                                   </div>
                                   <input id='responses-Magazines-getMagazineList-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Magazines-indexMagazineData">
+                      <article id="api-Magazines-indexMagazineData-0" data-group="User" data-name="indexMagazineData" data-version="0">
+                        <div class="pull-left">
+                          <h1>indexMagazineData</h1>
+                          <p>Manual Trigger for indexing magazines</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/v1/magazines/index</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Magazines-indexMagazineData-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Magazines-indexMagazineData-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Magazines-indexMagazineData-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Magazines-indexMagazineData-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Magazines-indexMagazineData-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Magazines-indexMagazineData-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Magazines-indexMagazineData-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Magazines-indexMagazineData-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Magazines-indexMagazineData-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Magazines-indexMagazineData-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Magazines-indexMagazineData-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Magazines-indexMagazineData-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Magazines-indexMagazineData-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
+ -H "Accept: application/json"\
+ -H "Content-Type: application/json"\
+ "http://slime.home:8080/api/v1/magazines/index"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Magazines-indexMagazineData-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.MagazinesApi;
+
+import java.io.File;
+import java.util.*;
+
+public class MagazinesApiExample {
+    public static void main(String[] args) {
+        
+        // Create an instance of the API class
+        MagazinesApi apiInstance = new MagazinesApi();
+        MagazinesIndexParam magazinesIndexParam = ; // MagazinesIndexParam | 
+        
+        try {
+            MagazinesIndexRet result = apiInstance.indexMagazineData(magazinesIndexParam);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MagazinesApi#indexMagazineData");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Magazines-indexMagazineData-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.MagazinesApi;
+
+public class MagazinesApiExample {
+    public static void main(String[] args) {
+        MagazinesApi apiInstance = new MagazinesApi();
+        MagazinesIndexParam magazinesIndexParam = ; // MagazinesIndexParam | 
+        
+        try {
+            MagazinesIndexRet result = apiInstance.indexMagazineData(magazinesIndexParam);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MagazinesApi#indexMagazineData");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Magazines-indexMagazineData-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Magazines-indexMagazineData-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+MagazinesApi *apiInstance = [[MagazinesApi alloc] init];
+MagazinesIndexParam *magazinesIndexParam = ; // 
+
+// Manual Trigger for indexing magazines
+[apiInstance indexMagazineDataWith:magazinesIndexParam
+              completionHandler: ^(MagazinesIndexRet output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Magazines-indexMagazineData-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var MyHomeManagerApi = require('my_home_manager_api');
+
+// Create an instance of the API class
+var api = new MyHomeManagerApi.MagazinesApi()
+var magazinesIndexParam = ; // {MagazinesIndexParam} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.indexMagazineData(magazinesIndexParam, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Magazines-indexMagazineData-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Magazines-indexMagazineData-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class indexMagazineDataExample
+    {
+        public void main()
+        {
+            
+            // Create an instance of the API class
+            var apiInstance = new MagazinesApi();
+            var magazinesIndexParam = new MagazinesIndexParam(); // MagazinesIndexParam | 
+
+            try {
+                // Manual Trigger for indexing magazines
+                MagazinesIndexRet result = apiInstance.indexMagazineData(magazinesIndexParam);
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling MagazinesApi.indexMagazineData: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Magazines-indexMagazineData-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\MagazinesApi();
+$magazinesIndexParam = ; // MagazinesIndexParam | 
+
+try {
+    $result = $api_instance->indexMagazineData($magazinesIndexParam);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MagazinesApi->indexMagazineData: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Magazines-indexMagazineData-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::MagazinesApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::MagazinesApi->new();
+my $magazinesIndexParam = WWW::OPenAPIClient::Object::MagazinesIndexParam->new(); # MagazinesIndexParam | 
+
+eval { 
+    my $result = $api_instance->indexMagazineData(magazinesIndexParam => $magazinesIndexParam);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling MagazinesApi->indexMagazineData: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Magazines-indexMagazineData-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.MagazinesApi()
+magazinesIndexParam =  # MagazinesIndexParam | 
+
+try: 
+    # Manual Trigger for indexing magazines
+    api_response = api_instance.index_magazine_data(magazinesIndexParam)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling MagazinesApi->indexMagazineData: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Magazines-indexMagazineData-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate MagazinesApi;
+
+pub fn main() {
+    let magazinesIndexParam = ; // MagazinesIndexParam
+
+    let mut context = MagazinesApi::Context::default();
+    let result = client.indexMagazineData(magazinesIndexParam, &context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">magazinesIndexParam <span style="color:red;">*</span></td>
+<td>
+<p class="marked"></p>
+<script>
+$(document).ready(function() {
+  var schemaWrapper = {
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/MagazinesIndexParam"
+      }
+    }
+  },
+  "required" : true
+};
+
+  var schema = findNode('schema',schemaWrapper).schema;
+  if (!schema) {
+    schema = schemaWrapper.schema;
+  }
+  if (schema.$ref != null) {
+    schema = defsParser.$refs.get(schema.$ref);
+  } else {
+    schemaWrapper.definitions = Object.assign({}, defs);
+    $RefParser.dereference(schemaWrapper).catch(function(err) {
+      console.log(err);
+    });
+  }
+
+  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+  var result = $('#d2e199_indexMagazineData_magazinesIndexParam');
+  result.empty();
+  result.append(view.render());
+});
+</script>
+<div id="d2e199_indexMagazineData_magazinesIndexParam"></div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-Magazines-indexMagazineData-title-200"></h3>
+                            <p id="examples-Magazines-indexMagazineData-description-200" class="marked"></p>
+                            <script>
+                              var responseMagazines200_description = `returns the amount of read magazines`;
+                              var responseMagazines200_description_break = responseMagazines200_description.indexOf('\n');
+                              if (responseMagazines200_description_break == -1) {
+                                $("#examples-Magazines-indexMagazineData-title-200").text("Status: 200 - " + responseMagazines200_description);
+                              } else {
+                                $("#examples-Magazines-indexMagazineData-title-200").text("Status: 200 - " + responseMagazines200_description.substring(0, responseMagazines200_description_break));
+                                $("#examples-Magazines-indexMagazineData-description-200").html(responseMagazines200_description.substring(responseMagazines200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Magazines-indexMagazineData-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Magazines-indexMagazineData-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Magazines-indexMagazineData-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Magazines-indexMagazineData-200-schema">
+                                  <div id="responses-Magazines-indexMagazineData-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "returns the amount of read magazines",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/MagazinesIndexRet"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Magazines-indexMagazineData-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Magazines-indexMagazineData-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Magazines-indexMagazineData-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
                         </article>
