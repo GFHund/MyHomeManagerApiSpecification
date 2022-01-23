@@ -46,6 +46,23 @@
                         }
                     }
                 }
+            },
+            "magazineIndex":{
+                "post": {
+                    "summary": "Manual Trigger for indexing magazines",
+                    "operationId": "indexMagazineData",
+                    "tags":[
+                        "magazines"
+                    ],
+                    "requestBody":{
+                        "$ref":"magazine/magazineRequestBody.json#/components/requestBodies/magazineIndex"
+                    },
+                    "responses":{
+                        "200":{
+                            "$ref":"magazine/magazineResponses.json#/components/responses/magazineIndex"
+                        }
+                    }
+                }
             }
         }
     }

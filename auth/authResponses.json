@@ -20,6 +20,16 @@
                         }
                     }
                 }
+            },
+            "verificationResponse":{
+                "description": "Response of the verification of the token",
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "$ref":"authSchema.json#/components/schemas/authVerificationResult"
+                        }
+                    }
+                }
             }
         }
     }

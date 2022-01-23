@@ -10,6 +10,16 @@
                         }
                     }
                 }
+            },
+            "magazineIndex":{
+                "required":true,
+                "content": {
+                    "application/json":{
+                        "schema":{
+                            "$ref":"magazineSchema.json#/components/schemas/MagazinesIndexParam"
+                        }
+                    }
+                }
             }
         }
     }
